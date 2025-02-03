@@ -1,4 +1,4 @@
-﻿using FinanceControl.FinanceControl.Application.DTOs;
+﻿using FinanceControl.FinanceControl.Application.DTOs.Category;
 using FinanceControl.FinanceControl.Application.Extensions;
 using FinanceControl.FinanceControl.Domain.Entities;
 using FinanceControl.FinanceControl.Domain.Interfaces;

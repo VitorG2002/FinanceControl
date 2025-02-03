@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using FinanceControl.FinanceControl.Application.DTOs;
+using FinanceControl.FinanceControl.Application.DTOs.Category;
+using FinanceControl.FinanceControl.Application.DTOs.Transaction;
+using FinanceControl.FinanceControl.Application.DTOs.User;
 using FinanceControl.FinanceControl.Domain.Entities;
 
 namespace FinanceControl.FinanceControl.Application.Mappings
@@ -11,6 +13,12 @@ namespace FinanceControl.FinanceControl.Application.Mappings
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
             CreateMap<Category, CategoryUpdateDto>().ReverseMap();
             CreateMap<CategoryReadDto, Category>().ReverseMap();
+            CreateMap<User, UserCreateDto>().ReverseMap();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
+            CreateMap<UserReadDto, User>().ReverseMap();
+            CreateMap<Transaction, TransactionCreateDto>().ReverseMap();
+            CreateMap<Transaction, TransactionUpdateDto>().ReverseMap();
+            CreateMap<TransactionReadDto, Transaction>().ReverseMap();
         }
     }
 }

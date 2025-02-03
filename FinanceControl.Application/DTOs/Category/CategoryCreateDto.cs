@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FinanceControl.FinanceControl.Application.DTOs
+namespace FinanceControl.FinanceControl.Application.DTOs.Category
 {
     public class CategoryCreateDto
     {

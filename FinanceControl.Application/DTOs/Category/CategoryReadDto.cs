@@ -1,6 +1,6 @@
-﻿namespace FinanceControl.FinanceControl.Application.DTOs
+﻿namespace FinanceControl.FinanceControl.Application.DTOs.Category
 {
-    public class CategoryUpdateDto
+    public class CategoryReadDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

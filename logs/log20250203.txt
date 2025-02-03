@@ -1,0 +1,220 @@
+2025-02-03 01:18:27.223 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 01:18:27.341 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 01:18:27.342 -03:00 [INF] Hosting environment: Development
+2025-02-03 01:18:27.343 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 01:18:27.856 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 01:18:28.057 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 211.062ms
+2025-02-03 01:18:28.077 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 01:18:28.077 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 01:18:28.089 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 12.8905ms
+2025-02-03 01:18:28.089 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 13.4544ms
+2025-02-03 01:18:28.401 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 01:18:28.433 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.9149ms
+2025-02-03 01:18:28.590 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 01:18:28.603 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.5318ms
+2025-02-03 01:18:35.171 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/User - application/json 67
+2025-02-03 01:18:35.179 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 01:18:35.183 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.Add (FinanceControl)'
+2025-02-03 01:18:35.203 -03:00 [INF] Route matched with {action = "Add", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.User.UserCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.UserController (FinanceControl).
+2025-02-03 01:18:35.211 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.UserController.Add (FinanceControl) in 3.7731ms
+2025-02-03 01:18:35.213 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.Add (FinanceControl)'
+2025-02-03 01:18:35.242 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/User - 500 null application/json 70.4068ms
+2025-02-03 01:19:05.272 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 01:19:05.401 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 01:19:05.402 -03:00 [INF] Hosting environment: Development
+2025-02-03 01:19:05.403 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 01:19:05.859 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 01:19:06.007 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 154.4697ms
+2025-02-03 01:19:06.025 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 01:19:06.034 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 9.7694ms
+2025-02-03 01:19:06.373 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 01:19:06.373 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 01:19:06.378 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 4.887ms
+2025-02-03 01:19:06.405 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.9498ms
+2025-02-03 01:19:06.524 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 01:19:06.536 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.4957ms
+2025-02-03 01:19:11.505 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/User - application/json 67
+2025-02-03 01:19:11.512 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 01:19:11.516 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.Add (FinanceControl)'
+2025-02-03 01:19:11.535 -03:00 [INF] Route matched with {action = "Add", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.User.UserCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.UserController (FinanceControl).
+2025-02-03 01:19:12.694 -03:00 [INF] Executed DbCommand (49ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [Name], [Password])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2025-02-03 01:19:12.736 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'FinanceControl.FinanceControl.Domain.Entities.User'.
+2025-02-03 01:19:12.762 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.UserController.Add (FinanceControl) in 1222.5935ms
+2025-02-03 01:19:12.763 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.Add (FinanceControl)'
+2025-02-03 01:19:12.770 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/User - 201 null application/json; charset=utf-8 1264.5492ms
+2025-02-03 01:19:29.622 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 129
+2025-02-03 01:19:29.625 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 01:19:29.630 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 01:19:29.725 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Transactions] ([Amount], [CategoryId], [Date], [Description], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2025-02-03 01:19:29.763 -03:00 [ERR] An exception occurred in the database while saving changes for context type 'FinanceControl.FinanceControl.Infraestructure.Persistence.FinanceControlDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Transactions_Users_UserId". The conflict occurred in database "FinanceControlDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:ebe98f77-1c67-4085-a3e9-c9894c0ebc2a
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Transactions_Users_UserId". The conflict occurred in database "FinanceControlDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:ebe98f77-1c67-4085-a3e9-c9894c0ebc2a
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-03 01:19:29.917 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 284.3338ms
+2025-02-03 01:19:29.919 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 01:19:29.970 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 500 null application/json 348.3299ms
+2025-02-03 01:19:39.137 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 129
+2025-02-03 01:19:39.139 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 01:19:39.141 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 01:19:44.668 -03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Transactions] ([Amount], [CategoryId], [Date], [Description], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2025-02-03 01:19:44.679 -03:00 [ERR] An exception occurred in the database while saving changes for context type 'FinanceControl.FinanceControl.Infraestructure.Persistence.FinanceControlDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Transactions_Users_UserId". The conflict occurred in database "FinanceControlDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:ebe98f77-1c67-4085-a3e9-c9894c0ebc2a
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Transactions_Users_UserId". The conflict occurred in database "FinanceControlDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:ebe98f77-1c67-4085-a3e9-c9894c0ebc2a
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-03 01:19:44.952 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 5809.8244ms
+2025-02-03 01:19:44.954 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 01:21:42.824 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 500 null application/json 123687.2472ms
+2025-02-03 01:21:48.814 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/api/User - null null
+2025-02-03 01:21:48.817 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.GetAll (FinanceControl)'
+2025-02-03 01:21:48.821 -03:00 [INF] Route matched with {action = "GetAll", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller FinanceControl.FinanceControl.API.Controllers.UserController (FinanceControl).
+2025-02-03 01:21:48.988 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
+FROM [Users] AS [u]
+2025-02-03 01:21:49.005 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FinanceControl.FinanceControl.Application.DTOs.User.UserReadDto, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-03 01:21:49.008 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.UserController.GetAll (FinanceControl) in 184.8281ms
+2025-02-03 01:21:49.010 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.GetAll (FinanceControl)'
+2025-02-03 01:21:49.011 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/api/User - 200 null application/json; charset=utf-8 196.5196ms
+2025-02-03 01:21:56.370 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/api/Category - null null
+2025-02-03 01:21:56.372 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll (FinanceControl)'
+2025-02-03 01:21:56.375 -03:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-03 01:21:56.388 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]
+2025-02-03 01:21:56.397 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FinanceControl.FinanceControl.Application.DTOs.Category.CategoryReadDto, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-03 01:21:56.400 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll (FinanceControl) in 22.0379ms
+2025-02-03 01:21:56.401 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll (FinanceControl)'
+2025-02-03 01:21:56.402 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/api/Category - 200 null application/json; charset=utf-8 32.6286ms
+2025-02-03 01:22:09.336 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 129
+2025-02-03 01:22:09.338 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 01:22:09.339 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 01:22:11.250 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Transactions] ([Amount], [CategoryId], [Date], [Description], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2025-02-03 01:22:11.255 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'FinanceControl.FinanceControl.Domain.Entities.Transaction'.
+2025-02-03 01:22:11.260 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 1918.6216ms
+2025-02-03 01:22:11.262 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 01:22:11.265 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 201 null application/json; charset=utf-8 1929.0893ms

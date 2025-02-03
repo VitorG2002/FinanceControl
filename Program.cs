@@ -34,6 +34,8 @@ AutoMapperFactory.Initialize();
 // Registrar repositórios e serviços
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 // Configuração do Swagger
 builder.Services.AddEndpointsApiExplorer();
