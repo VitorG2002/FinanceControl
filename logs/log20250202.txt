@@ -29,3 +29,363 @@
 2025-02-02 19:28:02.985 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/favicon-32x32.png - 200 628 image/png 3.7081ms
 2025-02-02 19:28:03.159 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
 2025-02-02 19:28:03.168 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.2675ms
+2025-02-02 21:34:25.465 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-02 21:34:25.667 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 21:34:25.669 -03:00 [INF] Hosting environment: Development
+2025-02-02 21:34:25.670 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-02 21:34:26.923 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-02 21:34:27.100 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 183.0902ms
+2025-02-02 21:34:27.115 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-02 21:34:27.115 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-02 21:34:27.128 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 14.1251ms
+2025-02-02 21:34:27.133 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 18.7523ms
+2025-02-02 21:34:27.519 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-02 21:34:27.571 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.5008ms
+2025-02-02 21:34:27.764 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-02 21:34:27.776 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.2611ms
+2025-02-02 21:52:46.846 -03:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-02-02 21:53:10.433 -03:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-02-02 21:53:44.833 -03:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-02-02 21:55:38.017 -03:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-02-02 21:57:19.820 -03:00 [INF] Executed DbCommand (130ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [FinanceControlDB];
+2025-02-02 21:57:19.916 -03:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [FinanceControlDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-02-02 21:57:19.930 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-02 21:57:19.932 -03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-02-02 21:57:19.949 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-02-02 21:57:19.992 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-02-02 21:57:19.998 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-02 21:57:19.998 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-02-02 21:57:20.015 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-02-02 21:57:20.022 -03:00 [INF] Applying migration '20250203005655_InitialCreate'.
+2025-02-02 21:57:20.035 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2025-02-02 21:57:20.037 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-02-02 21:57:20.039 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Transactions] (
+    [Id] int NOT NULL IDENTITY,
+    [Type] int NOT NULL,
+    [Amount] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [Date] datetime2 NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_Transactions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Transactions_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2025-02-02 21:57:20.042 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Transactions_CategoryId] ON [Transactions] ([CategoryId]);
+2025-02-02 21:57:20.042 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Transactions_UserId] ON [Transactions] ([UserId]);
+2025-02-02 21:57:20.045 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250203005655_InitialCreate', N'9.0.1');
+2025-02-02 21:57:20.048 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-02-02 22:01:49.481 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-02 22:01:49.606 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 22:01:49.608 -03:00 [INF] Hosting environment: Development
+2025-02-02 22:01:49.609 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-02 22:01:50.308 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-02 22:01:50.516 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 214.0419ms
+2025-02-02 22:01:50.535 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-02 22:01:50.540 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 5.6493ms
+2025-02-02 22:01:51.017 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-02 22:01:51.017 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-02 22:01:51.026 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 8.8853ms
+2025-02-02 22:01:51.053 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.0997ms
+2025-02-02 22:01:51.200 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-02 22:01:51.236 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.2604ms
+2025-02-02 22:03:10.178 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 21
+2025-02-02 22:03:10.186 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-02 22:03:10.190 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:03:10.206 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:03:22.859 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl) in 12648.5979ms
+2025-02-02 22:03:22.861 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:03:23.221 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Category - 500 null application/json 13043.405ms
+2025-02-02 22:03:42.818 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 21
+2025-02-02 22:03:42.822 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:03:42.823 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:04:17.401 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-02 22:04:17.536 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 22:04:17.538 -03:00 [INF] Hosting environment: Development
+2025-02-02 22:04:17.539 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-02 22:04:18.160 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-02 22:04:18.331 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 177.5645ms
+2025-02-02 22:04:18.355 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-02 22:04:18.355 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-02 22:04:18.370 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 16.4706ms
+2025-02-02 22:04:18.373 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 18.9059ms
+2025-02-02 22:04:18.691 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-02 22:04:18.739 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.3352ms
+2025-02-02 22:04:18.936 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-02 22:04:18.947 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.4795ms
+2025-02-02 22:04:27.446 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 22
+2025-02-02 22:04:27.457 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-02 22:04:27.462 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:04:27.484 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:04:35.393 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[FinanceControl.FinanceControl.Domain.Entities.Category, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Runtime.CompilerServices.IAsyncStateMachine, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-02 22:04:35.430 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl) in 7941.6544ms
+2025-02-02 22:04:35.432 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:04:35.462 -03:00 [ERR] An error occurred using the connection to database 'FinanceControlDB' on server 'localhost'.
+2025-02-02 22:04:35.463 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Category - 500 null application/json 8016.9109ms
+2025-02-02 22:04:42.272 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 22
+2025-02-02 22:04:42.276 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:04:42.278 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:04:50.719 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[FinanceControl.FinanceControl.Domain.Entities.Category, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Runtime.CompilerServices.IAsyncStateMachine, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-02 22:04:50.726 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl) in 8446.0731ms
+2025-02-02 22:04:50.727 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:04:50.747 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Category - 500 null application/json 8474.6685ms
+2025-02-02 22:04:50.754 -03:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-02-02 22:06:22.066 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 22
+2025-02-02 22:06:22.072 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:06:22.075 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:06:26.919 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[FinanceControl.FinanceControl.Domain.Entities.Category, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Runtime.CompilerServices.IAsyncStateMachine, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-02 22:06:26.947 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-02-02 22:06:26.950 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl) in 4871.8866ms
+2025-02-02 22:06:26.956 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:06:26.974 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Category - 500 null application/json 4907.9469ms
+2025-02-02 22:07:31.261 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-02 22:07:31.357 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 22:07:31.358 -03:00 [INF] Hosting environment: Development
+2025-02-02 22:07:31.359 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-02 22:07:32.207 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-02 22:07:32.383 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 182.4484ms
+2025-02-02 22:07:32.406 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-02 22:07:32.418 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 13.134ms
+2025-02-02 22:07:32.782 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-02 22:07:32.831 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.5972ms
+2025-02-02 22:07:32.837 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-02 22:07:32.842 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 4.8155ms
+2025-02-02 22:07:32.984 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-02 22:07:32.995 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.4678ms
+2025-02-02 22:07:35.394 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 22
+2025-02-02 22:07:35.402 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-02 22:07:35.406 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:07:35.428 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:07:42.109 -03:00 [INF] Executed DbCommand (50ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-02-02 22:07:42.159 -03:00 [ERR] An exception occurred in the database while saving changes for context type 'FinanceControl.FinanceControl.Infraestructure.Persistence.FinanceControlDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'FinanceControlDB.dbo.Categories'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:9867969d-ffaf-42d2-b156-9c190945019d
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'FinanceControlDB.dbo.Categories'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:9867969d-ffaf-42d2-b156-9c190945019d
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-02 22:07:42.445 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl) in 7011.7059ms
+2025-02-02 22:07:42.447 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:09:10.712 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Category - 500 null application/json 95318.3487ms
+2025-02-02 22:11:17.723 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-02 22:11:17.753 -03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-02-02 22:11:17.769 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-02-02 22:11:17.816 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-02-02 22:11:17.822 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-02 22:11:17.822 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-02-02 22:11:17.827 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-02-02 22:11:17.834 -03:00 [INF] Applying migration '20250203011112_MakeCategoryDescriptionOptional'.
+2025-02-02 22:11:18.655 -03:00 [INF] Executed DbCommand (814ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var sysname;
+SELECT @var = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Categories]') AND [c].[name] = N'Description');
+IF @var IS NOT NULL EXEC(N'ALTER TABLE [Categories] DROP CONSTRAINT [' + @var + '];');
+ALTER TABLE [Categories] ALTER COLUMN [Description] nvarchar(max) NULL;
+2025-02-02 22:11:18.659 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250203011112_MakeCategoryDescriptionOptional', N'9.0.1');
+2025-02-02 22:11:18.662 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-02-02 22:11:53.775 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-02 22:11:53.882 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 22:11:53.884 -03:00 [INF] Hosting environment: Development
+2025-02-02 22:11:53.886 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-02 22:11:54.787 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-02 22:11:54.958 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 178.3835ms
+2025-02-02 22:11:54.978 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-02 22:11:54.978 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-02 22:11:54.988 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 10.4944ms
+2025-02-02 22:11:54.994 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 17.4268ms
+2025-02-02 22:11:55.336 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-02 22:11:55.373 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.1115ms
+2025-02-02 22:11:55.526 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-02 22:11:55.537 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.262ms
+2025-02-02 22:12:13.023 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Category - application/json 49
+2025-02-02 22:12:13.030 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-02 22:12:13.033 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:12:13.053 -03:00 [INF] Route matched with {action = "Add", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.CategoryCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:12:17.915 -03:00 [INF] Executed DbCommand (39ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-02-02 22:12:20.881 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'FinanceControl.FinanceControl.Domain.Entities.Category'.
+2025-02-02 22:12:22.309 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl) in 9252.0129ms
+2025-02-02 22:12:22.311 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Add (FinanceControl)'
+2025-02-02 22:12:22.943 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Category - 201 null application/json; charset=utf-8 9920.0629ms
+2025-02-02 22:12:45.519 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5159/api/Category - application/json 32
+2025-02-02 22:12:45.526 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Update (FinanceControl)'
+2025-02-02 22:12:45.533 -03:00 [INF] Route matched with {action = "Update", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(FinanceControl.FinanceControl.Application.DTOs.CategoryUpdateDto) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:12:45.899 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2025-02-02 22:12:45.925 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Categories] SET [Description] = @p0, [Name] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-02-02 22:12:45.936 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-02 22:12:45.938 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.Update (FinanceControl) in 402.3526ms
+2025-02-02 22:12:45.942 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.Update (FinanceControl)'
+2025-02-02 22:12:45.948 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5159/api/Category - 204 null null 429.8087ms
+2025-02-02 22:12:50.319 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/api/Category - null null
+2025-02-02 22:12:50.322 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll (FinanceControl)'
+2025-02-02 22:12:50.327 -03:00 [INF] Route matched with {action = "GetAll", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:12:50.351 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]
+2025-02-02 22:12:50.362 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FinanceControl.FinanceControl.Application.DTOs.CategoryReadDto, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-02 22:12:50.364 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll (FinanceControl) in 34.5764ms
+2025-02-02 22:12:50.366 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll (FinanceControl)'
+2025-02-02 22:12:50.368 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/api/Category - 200 null application/json; charset=utf-8 49.7501ms
+2025-02-02 22:12:54.879 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/api/Category/4 - null null
+2025-02-02 22:12:54.881 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.GetById (FinanceControl)'
+2025-02-02 22:12:54.886 -03:00 [INF] Route matched with {action = "GetById", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller FinanceControl.FinanceControl.API.Controllers.CategoryController (FinanceControl).
+2025-02-02 22:12:54.898 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2025-02-02 22:12:54.902 -03:00 [INF] Executing OkObjectResult, writing value of type 'FinanceControl.FinanceControl.Application.DTOs.CategoryReadDto'.
+2025-02-02 22:12:54.903 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.CategoryController.GetById (FinanceControl) in 13.6869ms
+2025-02-02 22:12:54.907 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.CategoryController.GetById (FinanceControl)'
+2025-02-02 22:12:54.908 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/api/Category/4 - 200 null application/json; charset=utf-8 29.3937ms
+2025-02-02 22:12:57.972 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/api/Transactions - null null
+2025-02-02 22:12:57.982 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionsController.GetAll (FinanceControl)'
+2025-02-02 22:12:57.986 -03:00 [INF] Route matched with {action = "GetAll", controller = "Transactions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAll() on controller FinanceControl.FinanceControl.API.Controllers.TransactionsController (FinanceControl).
+2025-02-02 22:12:57.990 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FinanceControl.FinanceControl.Domain.Entities.Transaction, FinanceControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-02 22:12:57.992 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionsController.GetAll (FinanceControl) in 2.6117ms
+2025-02-02 22:12:57.995 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionsController.GetAll (FinanceControl)'
+2025-02-02 22:12:57.997 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/api/Transactions - 200 null application/json; charset=utf-8 25.7624ms

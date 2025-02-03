@@ -1,14 +1,15 @@
 ﻿using FinanceControl.FinanceControl.Domain.Interfaces;
+using FinanceControl.FinanceControl.Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinanceControl.FinanceControl.Infraestructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly DbContext _context;
+        private readonly FinanceControlDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public Repository(DbContext context)
+        public Repository(FinanceControlDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
@@ -18,10 +19,12 @@ namespace FinanceControl.FinanceControl.Infraestructure.Repositories
 
         public async Task<T> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
 
-        public async Task AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
+
+            return entity;
         }
 
         public async Task UpdateAsync(T entity)

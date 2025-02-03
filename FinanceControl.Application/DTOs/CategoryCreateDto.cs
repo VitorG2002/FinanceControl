@@ -1,7 +1,15 @@
-﻿namespace FinanceControl.FinanceControl.Application.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FinanceControl.FinanceControl.Application.DTOs
 {
     public class CategoryCreateDto
     {
+        [Required(ErrorMessage = "O nome da categoria é obrigatório.")]
+        [StringLength(100, ErrorMessage = "O nome da categoria deve ter no máximo 100 caracteres.")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "O nome da categoria é obrigatório.")]
+        [StringLength(100, ErrorMessage = "O nome da categoria deve ter no máximo 100 caracteres.")]
+        public string Description { get; set; }
     }
 }

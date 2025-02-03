@@ -2,6 +2,7 @@
 using FinanceControl.FinanceControl.Application.Common;
 using FinanceControl.FinanceControl.Application.Services;
 using FinanceControl.FinanceControl.Domain.Interfaces;
+using FinanceControl.FinanceControl.Infraestructure.Persistence;
 using FinanceControl.FinanceControl.Infraestructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -20,11 +21,13 @@ builder.Host.UseSerilog();
 // Adicionar serviços ao container
 builder.Services.AddControllers();
 
-// Configuração do DbContext (substitua pela sua conexão)
-builder.Services.AddDbContext<DbContext>(options =>
+// Configuração do DbContext 
+builder.Services.AddDbContext<FinanceControlDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
 // Configuração do AutoMapper
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 AutoMapperFactory.Initialize();
 
@@ -32,7 +35,7 @@ AutoMapperFactory.Initialize();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
-// Configuração do Swagger (opcional)
+// Configuração do Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

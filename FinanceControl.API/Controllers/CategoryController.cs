@@ -10,13 +10,18 @@ namespace FinanceControl.FinanceControl.API.Controllers
     {
         private readonly ICategoryService _service;
 
-        [HttpPost]
-        public IActionResult Add([FromBody] CategoryCreateDto category)
+        public CategoryController(ICategoryService service)
         {
-            if (category == null)
-                return BadRequest("Invalid category data.");
+            _service = service; 
+        }
 
-            var categoryCreated = _service.AddAsync(category);
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] CategoryCreateDto category)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var categoryCreated = await _service.AddAsync(category);
 
             return CreatedAtAction(nameof(GetAll), new { id = categoryCreated.Id }, categoryCreated);
         }

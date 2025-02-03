@@ -16,11 +16,9 @@ namespace FinanceControl.FinanceControl.Application.Services
 
         public async Task<Category> AddAsync(CategoryCreateDto dto)
         {
-            Category category = dto.MapTo<CategoryCreateDto, Category>();
+            Category category = dto.MapTo<CategoryCreateDto, Category>();  
 
-            await _rep.AddAsync(category);
-
-            return category;
+            return await _rep.AddAsync(category); 
         }
 
         public async Task<CategoryReadDto> GetByIdAsync(int id)
