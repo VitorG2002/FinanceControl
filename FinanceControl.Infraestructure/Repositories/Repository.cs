@@ -1,6 +1,7 @@
-﻿using FinanceControl.FinanceControl.Domain.Interfaces;
+﻿using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
 using FinanceControl.FinanceControl.Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace FinanceControl.FinanceControl.Infraestructure.Repositories
 {
@@ -18,6 +19,11 @@ namespace FinanceControl.FinanceControl.Infraestructure.Repositories
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
 
         public async Task<T> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
+
+        public async Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbSet.FirstOrDefaultAsync(predicate);
+        }
 
         public async Task<T> AddAsync(T entity)
         {

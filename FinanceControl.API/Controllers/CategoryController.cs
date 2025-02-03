@@ -1,5 +1,5 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.Category;
-using FinanceControl.FinanceControl.Domain.Interfaces;
+using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceControl.FinanceControl.API.Controllers

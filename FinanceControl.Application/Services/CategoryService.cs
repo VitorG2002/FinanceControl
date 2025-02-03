@@ -1,7 +1,8 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.Category;
 using FinanceControl.FinanceControl.Application.Extensions;
 using FinanceControl.FinanceControl.Domain.Entities;
-using FinanceControl.FinanceControl.Domain.Interfaces;
+using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
+using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 
 namespace FinanceControl.FinanceControl.Application.Services
 {

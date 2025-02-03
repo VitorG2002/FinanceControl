@@ -1,7 +1,8 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.User;
 using FinanceControl.FinanceControl.Application.Extensions;
 using FinanceControl.FinanceControl.Domain.Entities;
-using FinanceControl.FinanceControl.Domain.Interfaces;
+using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
+using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 
 namespace FinanceControl.FinanceControl.Application.Services
 {
@@ -16,7 +17,12 @@ namespace FinanceControl.FinanceControl.Application.Services
 
         public async Task<User> AddAsync(UserCreateDto dto)
         {
-            User user = dto.MapTo<UserCreateDto, User>();
+            // Criptografar a senha usando BCrypt
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+            // Mapear DTO para entidade e substituir a senha pela versão criptografada
+            var user = dto.MapTo<UserCreateDto, User>();
+            user.Password = hashedPassword;
 
             return await _rep.AddAsync(user);
         }
@@ -52,6 +58,16 @@ namespace FinanceControl.FinanceControl.Application.Services
             user = dto.MapTo(user);
 
             await _rep.UpdateAsync(user);
+
+            return user;
+        }
+
+        public async Task<User> ValidateUserAsync(string email, string password)
+        {
+            var user = await _rep.GetFirstOrDefaultAsync(u => u.Email == email);
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
+                return null;
 
             return user;
         }
