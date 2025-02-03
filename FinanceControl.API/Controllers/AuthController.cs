@@ -1,7 +1,6 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.User;
 using FinanceControl.FinanceControl.Application.Security;
-using FinanceControl.FinanceControl.Domain.Entities;
-using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
+using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceControl.FinanceControl.API.Controllers
@@ -10,19 +9,19 @@ namespace FinanceControl.FinanceControl.API.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserService _userService;
         private readonly JwtService _jwtService;
 
-        public AuthController(IRepository<User> userRepository, JwtService jwtService)
+        public AuthController(IUserService userService, JwtService jwtService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
             _jwtService = jwtService;
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            var user = await _userRepository.GetAllAsync();
+            var user = await _userService.GetAllAsync();
             var existingUser = user.FirstOrDefault(u => u.Email == loginDto.Email && u.Password == loginDto.Password);
 
             if (existingUser == null)
@@ -36,15 +35,14 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-            var user = new User
+            var userDto = new UserCreateDto
             {
                 Name = registerDto.Name,
                 Email = registerDto.Email,
                 Password = registerDto.Password,
-                CreatedAt = DateTime.UtcNow
             };
 
-            await _userRepository.AddAsync(user);
+            var user = await _userService.AddAsync(userDto);
 
             var token = _jwtService.GenerateToken(user.Email, user.Id.ToString());
 

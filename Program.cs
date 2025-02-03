@@ -1,5 +1,6 @@
 ﻿using FinanceControl.FinanceControl.API.Middlewares;
 using FinanceControl.FinanceControl.Application.Common;
+using FinanceControl.FinanceControl.Application.Security;
 using FinanceControl.FinanceControl.Application.Services;
 using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
@@ -42,6 +43,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<JwtService>();
 // Configuração do Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
