@@ -876,3 +876,520 @@ FROM [Users] AS [u]
 2025-02-03 03:24:27.192 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
 FROM [Users] AS [u]
+2025-02-03 17:32:32.968 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 17:32:33.256 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 17:32:33.344 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 17:32:33.345 -03:00 [INF] Hosting environment: Development
+2025-02-03 17:32:33.346 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 17:32:33.981 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 17:32:34.294 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 319.4003ms
+2025-02-03 17:32:34.316 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 17:32:34.316 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 17:32:34.322 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 7.0726ms
+2025-02-03 17:32:34.338 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 22.0244ms
+2025-02-03 17:32:34.675 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 17:32:34.720 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.4252ms
+2025-02-03 17:32:34.861 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 17:32:34.880 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.7591ms
+2025-02-03 17:32:37.900 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/register - application/json 67
+2025-02-03 17:32:37.909 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 17:32:37.913 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Register (FinanceControl)'
+2025-02-03 17:32:37.935 -03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(FinanceControl.FinanceControl.Application.DTOs.User.RegisterDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 17:32:39.411 -03:00 [INF] Executed DbCommand (46ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [Name], [Password])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2025-02-03 17:32:39.486 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-03 17:32:39.494 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Register (FinanceControl) in 1555.3863ms
+2025-02-03 17:32:39.496 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Register (FinanceControl)'
+2025-02-03 17:32:39.503 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/register - 200 null application/json; charset=utf-8 1603.076ms
+2025-02-03 17:32:45.370 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 47
+2025-02-03 17:32:45.374 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:32:45.379 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 17:32:45.603 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
+FROM [Users] AS [u]
+2025-02-03 17:32:45.627 -03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-02-03 17:32:45.628 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 247.2768ms
+2025-02-03 17:32:45.630 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:32:45.631 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 401 null text/plain; charset=utf-8 261.0245ms
+2025-02-03 17:41:18.252 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 17:41:18.438 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 17:41:18.515 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 17:41:18.517 -03:00 [INF] Hosting environment: Development
+2025-02-03 17:41:18.517 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 17:41:18.665 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 17:41:18.876 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 217.1065ms
+2025-02-03 17:41:18.894 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 17:41:18.894 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 17:41:18.903 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 9.8975ms
+2025-02-03 17:41:18.912 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 17.0102ms
+2025-02-03 17:41:19.273 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 17:41:19.305 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.3495ms
+2025-02-03 17:41:19.432 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 17:41:19.448 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.204ms
+2025-02-03 17:43:21.022 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5159/api/User/4 - null null
+2025-02-03 17:43:21.035 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 17:43:21.038 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.Delete (FinanceControl)'
+2025-02-03 17:43:21.058 -03:00 [INF] Route matched with {action = "Delete", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller FinanceControl.FinanceControl.API.Controllers.UserController (FinanceControl).
+2025-02-03 17:43:22.067 -03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-02-03 17:43:22.192 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Users]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-02-03 17:43:22.210 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-03 17:43:22.214 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.UserController.Delete (FinanceControl) in 1151.3773ms
+2025-02-03 17:43:22.216 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.UserController.Delete (FinanceControl)'
+2025-02-03 17:43:22.224 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5159/api/User/4 - 204 null null 1201.6942ms
+2025-02-03 17:43:31.217 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 47
+2025-02-03 17:43:31.221 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:43:31.227 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 17:43:31.304 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
+FROM [Users] AS [u]
+2025-02-03 17:43:31.650 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-03 17:43:31.656 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 427.8612ms
+2025-02-03 17:43:31.658 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:43:31.659 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 200 null application/json; charset=utf-8 441.7068ms
+2025-02-03 17:43:37.600 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 46
+2025-02-03 17:43:37.603 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:43:37.604 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 17:43:37.619 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
+FROM [Users] AS [u]
+2025-02-03 17:43:37.883 -03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-02-03 17:43:37.884 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 278.5911ms
+2025-02-03 17:43:37.886 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:43:37.887 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 401 null text/plain; charset=utf-8 287.0917ms
+2025-02-03 17:43:40.667 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 45
+2025-02-03 17:43:40.669 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:43:40.671 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 17:43:40.676 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password]
+FROM [Users] AS [u]
+2025-02-03 17:43:40.807 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-03 17:43:40.809 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 136.4701ms
+2025-02-03 17:43:40.811 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 17:43:40.812 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 200 null application/json; charset=utf-8 145.2611ms
+2025-02-03 17:43:53.445 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 129
+2025-02-03 17:43:53.452 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-02-03 17:43:53.457 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-03 17:43:53.458 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 401 0 null 13.2381ms
+2025-02-03 17:44:31.306 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 130
+2025-02-03 17:44:31.352 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 17:44:31.360 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 17:44:31.430 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Transactions] ([Amount], [CategoryId], [Date], [Description], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2025-02-03 17:44:31.449 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'FinanceControl.FinanceControl.Domain.Entities.Transaction'.
+2025-02-03 17:44:31.470 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 107.3721ms
+2025-02-03 17:44:31.472 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 17:44:31.474 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 201 null application/json; charset=utf-8 170.3129ms
+2025-02-03 20:43:45.451 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 20:43:45.647 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 20:43:45.791 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 20:43:45.792 -03:00 [INF] Hosting environment: Development
+2025-02-03 20:43:45.793 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 20:43:46.158 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 20:43:46.390 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 240.4973ms
+2025-02-03 20:43:46.416 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 20:43:46.416 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 20:43:46.423 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 8.1994ms
+2025-02-03 20:43:46.427 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 12.1656ms
+2025-02-03 20:43:46.737 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 20:43:46.782 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.5708ms
+2025-02-03 20:43:46.902 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 20:43:46.916 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.3268ms
+2025-02-03 21:10:22.052 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:10:22.240 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:10:22.312 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:10:22.314 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:10:22.314 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:10:22.613 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:10:22.847 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 242.2589ms
+2025-02-03 21:10:22.867 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:10:22.874 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 7.9966ms
+2025-02-03 21:10:23.238 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:10:23.238 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:10:23.243 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 4.9258ms
+2025-02-03 21:10:23.271 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.5628ms
+2025-02-03 21:10:23.378 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:10:23.396 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.7326ms
+2025-02-03 21:10:38.688 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:10:38.944 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:10:39.051 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:10:39.053 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:10:39.054 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:10:39.662 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:10:39.902 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 249.9941ms
+2025-02-03 21:10:39.923 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:10:39.923 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:10:39.932 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 10.1018ms
+2025-02-03 21:10:39.942 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 19.9872ms
+2025-02-03 21:10:40.275 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:10:40.313 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.5163ms
+2025-02-03 21:10:40.439 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:10:40.475 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.57ms
+2025-02-03 21:22:33.719 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:22:33.927 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:22:34.176 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:22:34.177 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:22:34.178 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:22:34.715 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:22:34.936 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 229.2868ms
+2025-02-03 21:22:34.962 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:22:34.962 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:22:34.971 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 10.0883ms
+2025-02-03 21:22:34.972 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 10.6021ms
+2025-02-03 21:22:35.323 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:22:35.359 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.4159ms
+2025-02-03 21:22:35.499 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:22:35.518 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.0876ms
+2025-02-03 21:22:49.530 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 47
+2025-02-03 21:22:49.540 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 21:22:49.546 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:22:49.572 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 21:22:50.856 -03:00 [ERR] Failed executing DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password], [u].[RefreshToken], [u].[RefreshTokenExpiry]
+FROM [Users] AS [u]
+2025-02-03 21:22:50.898 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'FinanceControl.FinanceControl.Infraestructure.Persistence.FinanceControlDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'RefreshToken'.
+Invalid column name 'RefreshTokenExpiry'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:80807119-e094-4531-a49c-a1788da8c0a1
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'RefreshToken'.
+Invalid column name 'RefreshTokenExpiry'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:80807119-e094-4531-a49c-a1788da8c0a1
+Error Number:207,State:1,Class:16
+2025-02-03 21:22:51.014 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 1437.4274ms
+2025-02-03 21:22:51.017 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:22:51.067 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 500 null application/json 1537.079ms
+2025-02-03 21:29:16.495 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:29:16.677 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:29:16.752 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:29:16.753 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:29:16.754 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:29:16.981 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:29:17.185 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 208.78ms
+2025-02-03 21:29:17.203 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:29:17.203 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:29:17.210 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 8.5798ms
+2025-02-03 21:29:17.221 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 19.0962ms
+2025-02-03 21:29:17.624 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:29:17.671 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.6045ms
+2025-02-03 21:29:17.815 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:29:17.829 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.2045ms
+2025-02-03 21:29:22.428 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 47
+2025-02-03 21:29:22.435 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 21:29:22.439 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:29:22.457 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 21:29:23.525 -03:00 [ERR] Failed executing DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password], [u].[RefreshToken], [u].[RefreshTokenExpiry]
+FROM [Users] AS [u]
+2025-02-03 21:29:23.556 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'FinanceControl.FinanceControl.Infraestructure.Persistence.FinanceControlDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'RefreshToken'.
+Invalid column name 'RefreshTokenExpiry'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:072cfd76-91a6-4b73-a821-ee143b4fdf3d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'RefreshToken'.
+Invalid column name 'RefreshTokenExpiry'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:072cfd76-91a6-4b73-a821-ee143b4fdf3d
+Error Number:207,State:1,Class:16
+2025-02-03 21:29:23.662 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 1200.8446ms
+2025-02-03 21:29:23.666 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:29:23.713 -03:00 [ERR] Ocorreu uma exceção inesperada.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'RefreshToken'.
+Invalid column name 'RefreshTokenExpiry'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at FinanceControl.FinanceControl.Infraestructure.Repositories.Repository`1.GetAllAsync() in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.Infraestructure\Repositories\Repository.cs:line 19
+   at FinanceControl.FinanceControl.Application.Services.UserService.GetAllAsync() in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.Application\Services\UserService.cs:line 42
+   at FinanceControl.FinanceControl.API.Controllers.AuthController.Login(LoginDto loginDto) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.API\Controllers\AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FinanceControl.FinanceControl.API.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.API\Middlewares\ExceptionMiddleware.cs:line 21
+ClientConnectionId:072cfd76-91a6-4b73-a821-ee143b4fdf3d
+Error Number:207,State:1,Class:16
+2025-02-03 21:29:23.774 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 500 null application/json 1345.3711ms
+2025-02-03 21:32:38.040 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:32:38.224 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:32:38.399 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:32:38.400 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:32:38.401 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:32:38.659 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:32:38.892 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 239.1225ms
+2025-02-03 21:32:38.914 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:32:38.914 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:32:38.922 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 8.1904ms
+2025-02-03 21:32:38.928 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 14.3023ms
+2025-02-03 21:32:39.289 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:32:39.326 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.629ms
+2025-02-03 21:32:39.628 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:32:39.642 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.7146ms
+2025-02-03 21:32:57.321 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-03 21:32:57.352 -03:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-02-03 21:32:57.364 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-02-03 21:32:57.408 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-02-03 21:32:57.415 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-03 21:32:57.416 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-02-03 21:32:57.421 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-02-03 21:32:57.429 -03:00 [INF] Applying migration '20250204003245_UserRefreshToken'.
+2025-02-03 21:32:57.478 -03:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var sysname;
+SELECT @var = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Email');
+IF @var IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var + '];');
+ALTER TABLE [Users] ALTER COLUMN [Email] nvarchar(450) NOT NULL;
+2025-02-03 21:32:57.485 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [RefreshToken] nvarchar(max) NOT NULL DEFAULT N'';
+2025-02-03 21:32:57.486 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [RefreshTokenExpiry] datetime2 NULL;
+2025-02-03 21:32:57.490 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Transactions] ADD [CreatedAt] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2025-02-03 21:32:57.508 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Categories]') AND [c].[name] = N'Name');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Categories] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Categories] ALTER COLUMN [Name] nvarchar(450) NOT NULL;
+2025-02-03 21:32:57.512 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Categories] ADD [CreatedAt] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2025-02-03 21:32:57.526 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Users_Email] ON [Users] ([Email]);
+2025-02-03 21:32:57.531 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Categories_Name] ON [Categories] ([Name]);
+2025-02-03 21:32:57.534 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250204003245_UserRefreshToken', N'9.0.1');
+2025-02-03 21:32:57.536 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-02-03 21:33:30.596 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:33:30.904 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:33:30.998 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:33:31.000 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:33:31.001 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:33:31.622 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:33:31.942 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 333.6976ms
+2025-02-03 21:33:31.965 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:33:31.965 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:33:31.975 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 10.3329ms
+2025-02-03 21:33:31.981 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 15.8198ms
+2025-02-03 21:33:32.305 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:33:32.342 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.1866ms
+2025-02-03 21:33:32.537 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:33:32.551 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.0871ms
+2025-02-03 21:33:34.947 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 47
+2025-02-03 21:33:34.955 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 21:33:34.959 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:33:34.978 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 21:33:36.028 -03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password], [u].[RefreshToken], [u].[RefreshTokenExpiry]
+FROM [Users] AS [u]
+2025-02-03 21:33:36.578 -03:00 [INF] Executed DbCommand (28ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 450), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [CreatedAt] = @p0, [Email] = @p1, [Name] = @p2, [Password] = @p3, [RefreshToken] = @p4, [RefreshTokenExpiry] = @p5
+OUTPUT 1
+WHERE [Id] = @p6;
+2025-02-03 21:33:36.605 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-03 21:33:36.615 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 1632.7257ms
+2025-02-03 21:33:36.617 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:33:36.626 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 200 null application/json; charset=utf-8 1678.4398ms
+2025-02-03 21:34:26.599 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 141
+2025-02-03 21:34:26.654 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:34:26.659 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 21:34:26.789 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 126.669ms
+2025-02-03 21:34:26.791 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:34:26.808 -03:00 [ERR] Ocorreu uma exceção inesperada.
+System.FormatException: The input string 'string' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at FinanceControl.FinanceControl.Application.Services.TransactionService.AddAsync(TransactionCreateDto dto, String userId) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.Application\Services\TransactionService.cs:line 22
+   at FinanceControl.FinanceControl.API.Controllers.TransactionController.Add(TransactionCreateDto dto) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.API\Controllers\TransactionController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FinanceControl.FinanceControl.API.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.API\Middlewares\ExceptionMiddleware.cs:line 21
+2025-02-03 21:34:26.860 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 500 null application/json 265.3675ms
+2025-02-03 21:34:58.127 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 141
+2025-02-03 21:34:58.132 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:34:58.134 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 21:35:31.212 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 33075.0757ms
+2025-02-03 21:35:31.215 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:35:31.230 -03:00 [ERR] Ocorreu uma exceção inesperada.
+System.FormatException: The input string 'string' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at FinanceControl.FinanceControl.Application.Services.TransactionService.AddAsync(TransactionCreateDto dto, String userId) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.Application\Services\TransactionService.cs:line 22
+   at FinanceControl.FinanceControl.API.Controllers.TransactionController.Add(TransactionCreateDto dto) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.API\Controllers\TransactionController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at FinanceControl.FinanceControl.API.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\gutie\source\repos\FinanceControl\FinanceControl\FinanceControl.API\Middlewares\ExceptionMiddleware.cs:line 21
+2025-02-03 21:35:31.244 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 500 null application/json 33116.8274ms
+2025-02-03 21:35:33.380 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 141
+2025-02-03 21:35:33.383 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:35:33.385 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 21:39:16.432 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 21:39:16.698 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 21:39:16.784 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 21:39:16.785 -03:00 [INF] Hosting environment: Development
+2025-02-03 21:39:16.786 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 21:39:17.193 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 21:39:17.430 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 244.7162ms
+2025-02-03 21:39:17.453 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 21:39:17.454 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 21:39:17.462 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 9.5904ms
+2025-02-03 21:39:17.479 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 26.5591ms
+2025-02-03 21:39:17.771 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 21:39:17.806 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.4755ms
+2025-02-03 21:39:17.994 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 21:39:18.012 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.0574ms
+2025-02-03 21:39:21.428 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Auth/login - application/json 47
+2025-02-03 21:39:21.439 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 21:39:21.445 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:39:21.468 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto) on controller FinanceControl.FinanceControl.API.Controllers.AuthController (FinanceControl).
+2025-02-03 21:39:22.932 -03:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[Password], [u].[RefreshToken], [u].[RefreshTokenExpiry]
+FROM [Users] AS [u]
+2025-02-03 21:39:23.443 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 450), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [CreatedAt] = @p0, [Email] = @p1, [Name] = @p2, [Password] = @p3, [RefreshToken] = @p4, [RefreshTokenExpiry] = @p5
+OUTPUT 1
+WHERE [Id] = @p6;
+2025-02-03 21:39:23.461 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-03 21:39:23.468 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl) in 1995.3817ms
+2025-02-03 21:39:23.471 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.AuthController.Login (FinanceControl)'
+2025-02-03 21:39:23.478 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Auth/login - 200 null application/json; charset=utf-8 2050.1174ms
+2025-02-03 21:39:41.777 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5159/api/Transaction - application/json 114
+2025-02-03 21:39:41.828 -03:00 [INF] Executing endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:39:41.834 -03:00 [INF] Route matched with {action = "Add", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto) on controller FinanceControl.FinanceControl.API.Controllers.TransactionController (FinanceControl).
+2025-02-03 21:39:51.345 -03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Transactions] ([Amount], [CategoryId], [CreatedAt], [Date], [Description], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-02-03 21:39:53.432 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'FinanceControl.FinanceControl.Domain.Entities.Transaction'.
+2025-02-03 21:39:53.458 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl) in 11620.5842ms
+2025-02-03 21:39:53.460 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.Add (FinanceControl)'
+2025-02-03 21:39:53.462 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5159/api/Transaction - 201 null application/json; charset=utf-8 11684.6778ms

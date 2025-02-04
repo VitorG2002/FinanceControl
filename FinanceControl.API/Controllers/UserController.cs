@@ -15,16 +15,6 @@ namespace FinanceControl.FinanceControl.API.Controllers
             _service = service;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] UserCreateDto user)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var userCreated = await _service.AddAsync(user);
-
-            return CreatedAtAction(nameof(GetAll), new { id = userCreated.Id }, userCreated);
-        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -45,15 +35,10 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpPut()]
         public async Task<IActionResult> Update([FromBody] UserUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var user = await _service.UpdateAsync(dto);
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var user = await _service.DeleteAsync(id);
 
             return NoContent();
         }

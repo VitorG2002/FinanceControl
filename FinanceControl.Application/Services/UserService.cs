@@ -17,10 +17,11 @@ namespace FinanceControl.FinanceControl.Application.Services
 
         public async Task<User> AddAsync(UserCreateDto dto)
         {
-            // Criptografar a senha usando BCrypt
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            var existingUser = await _rep.GetAllAsync(u => u.Email == dto.Email);
+            if (existingUser.Any())
+                throw new InvalidOperationException("Este email já está em uso.");
 
-            // Mapear DTO para entidade e substituir a senha pela versão criptografada
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
             var user = dto.MapTo<UserCreateDto, User>();
             user.Password = hashedPassword;
 
@@ -70,6 +71,18 @@ namespace FinanceControl.FinanceControl.Application.Services
                 return null;
 
             return user;
+        }
+
+        public async Task UpdateRefreshTokenAsync(int userId, string refreshToken, DateTime refreshTokenExpiry)
+        {
+            var user = await _rep.GetByIdAsync(userId);
+            if (user == null)
+                throw new InvalidOperationException("Usuário não encontrado.");
+
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiry = refreshTokenExpiry;
+
+            await _rep.UpdateAsync(user);
         }
     }
 }

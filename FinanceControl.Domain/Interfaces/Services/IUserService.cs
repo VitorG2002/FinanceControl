@@ -11,5 +11,6 @@ namespace FinanceControl.FinanceControl.Domain.Interfaces.Services
         Task<User> UpdateAsync(UserUpdateDto dto);
         Task<bool> DeleteAsync(int id);
         Task<User> ValidateUserAsync(string email, string password);
+        Task UpdateRefreshTokenAsync(int userId, string refreshToken, DateTime refreshTokenExpiry);
     }
 }

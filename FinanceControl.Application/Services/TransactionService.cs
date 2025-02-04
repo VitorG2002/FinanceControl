@@ -16,9 +16,11 @@ namespace FinanceControl.FinanceControl.Application.Services
             _rep = rep;
         }
 
-        public async Task<Transaction> AddAsync(TransactionCreateDto dto)
+        public async Task<Transaction> AddAsync(TransactionCreateDto dto, string userId)
         {
-            Transaction transaction = dto.MapTo<TransactionCreateDto, Transaction>();
+            var transaction = dto.MapTo<TransactionCreateDto, Transaction>();
+            transaction.UserId = int.Parse(userId); 
+            transaction.CreatedAt = DateTime.UtcNow;
 
             return await _rep.AddAsync(transaction);
         }

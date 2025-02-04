@@ -2,6 +2,7 @@
 using FinanceControl.FinanceControl.Application.Security;
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
@@ -21,20 +22,26 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            var user = await _userService.GetAllAsync();
-            var existingUser = user.FirstOrDefault(u => u.Email == loginDto.Email && u.Password == loginDto.Password);
+            var users = await _userService.GetAllAsync();
+            var existingUser = users.FirstOrDefault(u => u.Email == loginDto.Email);
 
-            if (existingUser == null)
+            if (existingUser == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, existingUser.Password))
                 return Unauthorized("Email ou senha incorretos.");
 
             var token = _jwtService.GenerateToken(existingUser.Email, existingUser.Id.ToString());
+            var refreshToken = _jwtService.GenerateRefreshToken();
 
-            return Ok(new { Token = token });
+            await _userService.UpdateRefreshTokenAsync(existingUser.Id, refreshToken, DateTime.UtcNow.AddDays(7));
+
+            return Ok(new { Token = token, RefreshToken = refreshToken });
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var userDto = new UserCreateDto
             {
                 Name = registerDto.Name,
@@ -47,6 +54,32 @@ namespace FinanceControl.FinanceControl.API.Controllers
             var token = _jwtService.GenerateToken(user.Email, user.Id.ToString());
 
             return Ok(new { Token = token });
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
+        {
+            // Obtém o principal (usuário) a partir do token expirado
+            var principal = _jwtService.GetPrincipalFromExpiredToken(refreshTokenDto.Token);
+            var userId = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+                return BadRequest("Token inválido.");
+
+            // Busca o usuário pelo ID
+            var user = await _userService.GetByIdAsync(int.Parse(userId));
+            if (user == null || user.RefreshToken != refreshTokenDto.RefreshToken || user.RefreshTokenExpiry <= DateTime.UtcNow)
+                return BadRequest("Token de refresh inválido.");
+
+            // Gera um novo token e um novo refresh token
+            var newToken = _jwtService.GenerateToken(user.Email, user.Id.ToString());
+            var newRefreshToken = _jwtService.GenerateRefreshToken();
+
+            // Atualiza o refresh token do usuário
+            await _userService.UpdateRefreshTokenAsync(user.Id, newRefreshToken, DateTime.UtcNow.AddDays(7));
+
+            // Retorna o novo token e o novo refresh token
+            return Ok(new { Token = newToken, RefreshToken = newRefreshToken });
         }
     }
 }

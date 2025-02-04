@@ -5,7 +5,7 @@ namespace FinanceControl.FinanceControl.Domain.Interfaces.Services
 {
     public interface ITransactionService
     {
-        Task<Transaction> AddAsync(TransactionCreateDto Transaction);
+        Task<Transaction> AddAsync(TransactionCreateDto dto, string userId);
         Task<TransactionReadDto> GetByIdAsync(int id);
         Task<List<TransactionReadDto>> GetAllAsync(TransactionFilterDto filter);
         Task<Transaction> UpdateAsync(TransactionUpdateDto dto);

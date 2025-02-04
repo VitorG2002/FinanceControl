@@ -12,7 +12,7 @@ namespace FinanceControl.FinanceControl.API.Controllers
 
         public CategoryController(ICategoryService service)
         {
-            _service = service; 
+            _service = service;
         }
 
         [HttpPost]
@@ -45,6 +45,9 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpPut()]
         public async Task<IActionResult> Update([FromBody] CategoryUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var category = await _service.UpdateAsync(dto);
 
             return NoContent();

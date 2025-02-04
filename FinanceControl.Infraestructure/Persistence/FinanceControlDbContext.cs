@@ -13,11 +13,22 @@ namespace FinanceControl.FinanceControl.Infraestructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Transaction>()
                 .Property(t => t.Amount)
                 .HasPrecision(18, 2);
+
+            // Configuração de unicidade para o email do usuário
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
+            // Configuração de unicidade para o nome da categoria
+            modelBuilder.Entity<Category>()
+                .HasIndex(c => c.Name)
+                .IsUnique();
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -2,6 +2,7 @@
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
@@ -19,13 +20,17 @@ namespace FinanceControl.FinanceControl.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] TransactionCreateDto transaction)
+        [Authorize]
+        public async Task<IActionResult> Add([FromBody] TransactionCreateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var transactionCreated = await _service.AddAsync(transaction);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; 
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
 
+            var transactionCreated = await _service.AddAsync(dto, userId);
             return CreatedAtAction(nameof(GetAll), new { id = transactionCreated.Id }, transactionCreated);
         }
 
@@ -48,6 +53,9 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpPut()]
         public async Task<IActionResult> Update([FromBody] TransactionUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var transaction = await _service.UpdateAsync(dto);
 
             return NoContent();

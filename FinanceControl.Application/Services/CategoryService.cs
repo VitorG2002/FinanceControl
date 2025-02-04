@@ -17,6 +17,10 @@ namespace FinanceControl.FinanceControl.Application.Services
 
         public async Task<Category> AddAsync(CategoryCreateDto dto)
         {
+            var existingCategory = await _rep.GetAllAsync(u => u.Name == dto.Name);
+            if (existingCategory.Any())
+                throw new InvalidOperationException("Este nome já está em uso.");
+
             Category category = dto.MapTo<CategoryCreateDto, Category>();  
 
             return await _rep.AddAsync(category); 

@@ -10,6 +10,5 @@ namespace FinanceControl.FinanceControl.Application.DTOs.Transaction
         public int CategoryId { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
-        public int UserId { get; set; }
     }
 }

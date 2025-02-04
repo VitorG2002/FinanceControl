@@ -13,5 +13,6 @@ namespace FinanceControl.FinanceControl.Domain.Entities
         public DateTime Date { get; set; }
         public int UserId { get; set; } 
         public User User { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }
