@@ -9,10 +9,14 @@ namespace FinanceControl.FinanceControl.Application.Services
     public class UserService : IUserService
     {
         private readonly IRepository<User> _rep;
+        private readonly ITransactionRepository _repTransactions;
+        private readonly ICategoryRepository _repCategories;
 
-        public UserService(IRepository<User> rep)
+        public UserService(IRepository<User> rep, ITransactionRepository repTransactions, ICategoryRepository repCategories)
         {
             _rep = rep;
+            _repTransactions = repTransactions;
+            _repCategories = repCategories; 
         }
 
         public async Task<User> AddAsync(UserCreateDto dto)
@@ -46,12 +50,24 @@ namespace FinanceControl.FinanceControl.Application.Services
             return listDtos;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int userId)
         {
-            await _rep.DeleteAsync(id);
+            var user = await _rep.GetByIdAsync(userId);
+            if (user == null)
+                return false;
+
+            // Deletar transações do usuário primeiro
+            await _repTransactions.DeleteByUserIdAsync(userId);
+
+            // Deletar categorias do usuário
+            await _repCategories.DeleteByUserIdAsync(userId);
+
+            // Agora pode deletar o usuário
+            await _rep.DeleteAsync(userId);
 
             return true;
         }
+
 
         public async Task<User> UpdateAsync(UserUpdateDto dto)
         {

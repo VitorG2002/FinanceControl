@@ -43,6 +43,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<JwtService>();
 // Configuração do Swagger
 builder.Services.AddEndpointsApiExplorer();

@@ -25,18 +25,22 @@ namespace FinanceControl.FinanceControl.Application.Services
             return await _rep.AddAsync(transaction);
         }
 
-        public async Task<TransactionReadDto> GetByIdAsync(int id)
+        public async Task<TransactionReadDto> GetByIdAsync(int id, string userId)
         {
-            var transaction = await _rep.GetByIdAsync(id);
+            var transaction = await _rep.GetAllAsync(t => t.Id == id && t.UserId == int.Parse(userId));
+            var result = transaction.FirstOrDefault();
 
-            var dto = transaction.MapTo<Transaction, TransactionReadDto>();
+            if (result == null)
+                throw new InvalidOperationException("Transação não encontrada.");
+
+            var dto = result.MapTo<Transaction, TransactionReadDto>();
 
             return dto;
         }
 
-        public async Task<List<TransactionReadDto>> GetAllAsync(TransactionFilterDto filter)
+        public async Task<List<TransactionReadDto>> GetAllAsync(TransactionFilterDto filter, string userId)
         {
-            var transactions = await _rep.GetAllAsync();
+            var transactions = await _rep.GetAllAsync(t => t.UserId == int.Parse(userId));
 
             // Aplicar filtros
             var filteredTransactions = transactions
@@ -51,29 +55,41 @@ namespace FinanceControl.FinanceControl.Application.Services
             return dtos;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id, string userId)
         {
-            await _rep.DeleteAsync(id);
+            var transaction = await _rep.GetAllAsync(t => t.Id == id && t.UserId == int.Parse(userId));
+            var result = transaction.FirstOrDefault();
+
+            if (result == null)
+                throw new InvalidOperationException("Transação não encontrada.");
+
+            await _rep.DeleteAsync(result.Id);
 
             return true;
         }
 
-        public async Task<Transaction> UpdateAsync(TransactionUpdateDto dto)
+        public async Task<Transaction> UpdateAsync(TransactionUpdateDto dto, string userId)
         {
-            var transaction = await _rep.GetByIdAsync(dto.Id);
-            transaction = dto.MapTo(transaction);
+            var transaction = await _rep.GetAllAsync(t => t.Id == dto.Id && t.UserId == int.Parse(userId));
+            var result = transaction.FirstOrDefault();
 
-            await _rep.UpdateAsync(transaction);
+            if (result == null)
+                throw new InvalidOperationException("Transação não encontrada.");
 
-            return transaction;
+            // Usa o AutoMapper para mapear o DTO para a entidade
+            result = dto.MapTo(result);
+
+            await _rep.UpdateAsync(result);
+
+            return result;
         }
 
-        public async Task<MonthlyBalanceDto> GetMonthlyBalanceAsync(int year, int month)
+        public async Task<MonthlyBalanceDto> GetMonthlyBalanceAsync(int year, int month, string userId)
         {
             var startDate = new DateTime(year, month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
 
-            var transactions = await _rep.GetAllAsync();
+            var transactions = await _rep.GetAllAsync(t => t.UserId == int.Parse(userId));
 
             var monthlyTransactions = transactions
                 .Where(t => t.Date >= startDate && t.Date <= endDate)
@@ -99,12 +115,12 @@ namespace FinanceControl.FinanceControl.Application.Services
             };
         }
 
-        public async Task<AnnualBalanceDto> GetAnnualBalanceAsync(int year)
+        public async Task<AnnualBalanceDto> GetAnnualBalanceAsync(int year, string userId)
         {
             var startDate = new DateTime(year, 1, 1);
             var endDate = new DateTime(year, 12, 31);
 
-            var transactions = await _rep.GetAllAsync();
+            var transactions = await _rep.GetAllAsync(t => t.UserId == int.Parse(userId));
 
             var annualTransactions = transactions
                 .Where(t => t.Date >= startDate && t.Date <= endDate)
@@ -129,12 +145,12 @@ namespace FinanceControl.FinanceControl.Application.Services
             };
         }
 
-        public async Task<List<CategoryBalanceDto>> GetCategoryBalanceAsync(int year, int month)
+        public async Task<List<CategoryBalanceDto>> GetCategoryBalanceAsync(int year, int month, string userId)
         {
             var startDate = new DateTime(year, month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
 
-            var transactions = await _rep.GetAllWithCategoryAsync();
+            var transactions = await _rep.GetAllWithCategoryAsync(t => t.UserId == int.Parse(userId));
 
             var monthlyTransactions = transactions
                 .Where(t => t.Date >= startDate && t.Date <= endDate)

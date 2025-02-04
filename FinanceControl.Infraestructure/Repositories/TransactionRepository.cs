@@ -2,6 +2,7 @@
 using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
 using FinanceControl.FinanceControl.Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace FinanceControl.FinanceControl.Infraestructure.Repositories
 {
@@ -19,6 +20,21 @@ namespace FinanceControl.FinanceControl.Infraestructure.Repositories
             return await _context.Transactions
                 .Include(t => t.Category) // Inclui a categoria na consulta
                 .ToListAsync();
+        }
+
+        public async Task<List<Transaction>> GetAllWithCategoryAsync(Expression<Func<Transaction, bool>> predicate)
+        {
+            return await _context.Transactions
+                .Include(t => t.Category) // Inclui a categoria na consulta
+                .Where(predicate)
+                .ToListAsync();
+        }
+
+        public async Task DeleteByUserIdAsync(int userId)
+        {
+            var transactions = await _context.Transactions.Where(t => t.UserId == userId).ToListAsync();
+            _context.Transactions.RemoveRange(transactions);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.User;
 using FinanceControl.FinanceControl.Application.Security;
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -56,6 +57,7 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(new { Token = token });
         }
 
+        [Authorize]
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
         {

@@ -1,9 +1,11 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.User;
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase

@@ -13,22 +13,42 @@ namespace FinanceControl.FinanceControl.Infraestructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Transaction>()
                 .Property(t => t.Amount)
                 .HasPrecision(18, 2);
 
-            // Configuração de unicidade para o email do usuário
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
 
-            // Configuração de unicidade para o nome da categoria
             modelBuilder.Entity<Category>()
                 .HasIndex(c => c.Name)
                 .IsUnique();
 
+            // Relacionamento User -> Category (Sem cascata no banco, mas será tratada no código)
+            modelBuilder.Entity<Category>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Categories)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict); // Sem cascata automática
+
+            // Relacionamento User -> Transaction (Sem cascata no banco)
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.User)
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Relacionamento Category -> Transaction (Mantendo cascata)
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.Category)
+                .WithMany(c => c.Transactions)
+                .HasForeignKey(t => t.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade); // Se deletar uma categoria, apaga transações
+
             base.OnModelCreating(modelBuilder);
         }
+
+
     }
 }

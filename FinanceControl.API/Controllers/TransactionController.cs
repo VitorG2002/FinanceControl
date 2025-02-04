@@ -11,7 +11,6 @@ namespace FinanceControl.FinanceControl.API.Controllers
     [Route("api/[controller]")]
     public class TransactionController : ControllerBase
     {
-
         private readonly ITransactionService _service;
 
         public TransactionController(ITransactionService service)
@@ -20,13 +19,12 @@ namespace FinanceControl.FinanceControl.API.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Add([FromBody] TransactionCreateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; 
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized("Usuário não autenticado.");
 
@@ -35,58 +33,82 @@ namespace FinanceControl.FinanceControl.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery]TransactionFilterDto filter)
+        public async Task<IActionResult> GetAll([FromQuery] TransactionFilterDto filter)
         {
-            var transactions = await _service.GetAllAsync(filter);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
 
+            var transactions = await _service.GetAllAsync(filter, userId);
             return Ok(transactions);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var Transaction = await _service.GetByIdAsync(id);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
 
-            return Ok(Transaction);
+            var transaction = await _service.GetByIdAsync(id, userId);
+            return Ok(transaction);
         }
 
-        [HttpPut()]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] TransactionUpdateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var transaction = await _service.UpdateAsync(dto);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
 
+            var transaction = await _service.UpdateAsync(dto, userId);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var transaction = await _service.DeleteAsync(id);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
 
+            var transaction = await _service.DeleteAsync(id, userId);
             return NoContent();
         }
 
         [HttpGet("monthly-balance/{year}/{month}")]
         public async Task<IActionResult> GetMonthlyBalance(int year, int month)
         {
-            var balance = await _service.GetMonthlyBalanceAsync(year, month);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var balance = await _service.GetMonthlyBalanceAsync(year, month, userId);
             return Ok(balance);
         }
 
         [HttpGet("annual-balance/{year}")]
         public async Task<IActionResult> GetAnnualBalance(int year)
         {
-            var balance = await _service.GetAnnualBalanceAsync(year);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var balance = await _service.GetAnnualBalanceAsync(year, userId);
             return Ok(balance);
         }
 
         [HttpGet("category-balance/{year}/{month}")]
         public async Task<IActionResult> GetCategoryBalance(int year, int month)
         {
-            var balances = await _service.GetCategoryBalanceAsync(year, month);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var balances = await _service.GetCategoryBalanceAsync(year, month, userId);
             return Ok(balances);
         }
     }

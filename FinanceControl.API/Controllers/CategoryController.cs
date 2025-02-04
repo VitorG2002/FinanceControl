@@ -1,9 +1,12 @@
 ﻿using FinanceControl.FinanceControl.Application.DTOs.Category;
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
@@ -21,7 +24,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var categoryCreated = await _service.AddAsync(category);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var categoryCreated = await _service.AddAsync(category, userId);
 
             return CreatedAtAction(nameof(GetAll), new { id = categoryCreated.Id }, categoryCreated);
         }
@@ -29,7 +36,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var categories = await _service.GetAllAsync();
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var categories = await _service.GetAllAsync(userId);
 
             return Ok(categories);
         }
@@ -37,18 +48,26 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var category = await _service.GetByIdAsync(id);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var category = await _service.GetByIdAsync(id, userId);
 
             return Ok(category);
         }
 
-        [HttpPut()]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] CategoryUpdateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var category = await _service.UpdateAsync(dto);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var category = await _service.UpdateAsync(dto, userId);
 
             return NoContent();
         }
@@ -56,7 +75,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var category = await _service.DeleteAsync(id);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("Usuário não autenticado.");
+
+            var category = await _service.DeleteAsync(id, userId);
 
             return NoContent();
         }
