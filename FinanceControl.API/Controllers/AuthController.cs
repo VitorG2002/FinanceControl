@@ -7,6 +7,9 @@ using System.Security.Claims;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
+    /// <summary>
+    /// Controlador para autenticação de usuários
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
@@ -19,6 +22,12 @@ namespace FinanceControl.FinanceControl.API.Controllers
             _userService = userService;
             _jwtService = jwtService;
         }
+
+        /// <summary>
+        /// Autentica um usuário e retorna tokens JWT
+        /// </summary>
+        /// <param name="loginDto">Dados de login (email e senha)</param>
+        /// <returns>Token JWT e refresh token</returns>
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
@@ -37,6 +46,12 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(new { Token = token, RefreshToken = refreshToken });
         }
 
+
+        /// <summary>
+        /// Registra um novo usuário
+        /// </summary>
+        /// <param name="registerDto">Dados de registro (nome, email e senha)</param>
+        /// <returns>Token JWT</returns>
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
@@ -57,6 +72,12 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(new { Token = token });
         }
 
+
+        /// <summary>
+        /// Renova o token JWT usando um refresh token válido
+        /// </summary>
+        /// <param name="refreshTokenDto">Token JWT expirado e refresh token</param>
+        /// <returns>Novo token JWT e refresh token</returns>
         [Authorize]
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)

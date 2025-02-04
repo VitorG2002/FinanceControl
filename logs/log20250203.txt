@@ -2607,3 +2607,48 @@ WHERE [t].[UserId] = @__Parse_0
 2025-02-03 22:31:43.288 -03:00 [INF] Executed action FinanceControl.FinanceControl.API.Controllers.TransactionController.GetCategoryBalance (FinanceControl) in 81.3981ms
 2025-02-03 22:31:43.290 -03:00 [INF] Executed endpoint 'FinanceControl.FinanceControl.API.Controllers.TransactionController.GetCategoryBalance (FinanceControl)'
 2025-02-03 22:31:43.292 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/api/Transaction/category-balance/2025/2 - 200 null application/json; charset=utf-8 98.2984ms
+2025-02-03 23:42:33.993 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 23:42:34.180 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 23:42:34.251 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:42:34.252 -03:00 [INF] Hosting environment: Development
+2025-02-03 23:42:34.253 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 23:43:00.733 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 23:43:00.959 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 23:43:01.133 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:43:01.134 -03:00 [INF] Hosting environment: Development
+2025-02-03 23:43:01.135 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 23:43:01.453 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 23:43:01.674 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 227.1776ms
+2025-02-03 23:43:01.715 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 23:43:01.715 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 23:43:01.721 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 6.5295ms
+2025-02-03 23:43:01.733 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 23.05ms
+2025-02-03 23:43:02.028 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 23:43:02.121 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.6355ms
+2025-02-03 23:43:02.473 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 23:43:02.490 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.6595ms
+2025-02-03 23:43:33.277 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 23:43:33.467 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 23:43:33.549 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:43:33.550 -03:00 [INF] Hosting environment: Development
+2025-02-03 23:43:33.551 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 23:47:55.157 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 23:47:55.477 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 23:47:55.575 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:47:55.576 -03:00 [INF] Hosting environment: Development
+2025-02-03 23:47:55.577 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 23:51:47.336 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 23:51:47.635 -03:00 [INF] Now listening on: http://localhost:5159
+2025-02-03 23:51:48.123 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:51:48.127 -03:00 [INF] Hosting environment: Development
+2025-02-03 23:51:48.128 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-03 23:51:48.293 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-03 23:51:48.529 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 249.3161ms
+2025-02-03 23:51:48.555 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-03 23:51:48.555 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-03 23:51:48.565 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 10.9222ms
+2025-02-03 23:51:48.567 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 12.0569ms
+2025-02-03 23:51:48.886 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-03 23:51:48.928 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.0489ms
+2025-02-03 23:51:49.125 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-03 23:51:49.143 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.6221ms

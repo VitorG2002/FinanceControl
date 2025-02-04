@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FinanceControl</name>
+    </assembly>
+    <members>
+        <member name="T:FinanceControl.FinanceControl.API.Controllers.AuthController">
+            <summary>
+            Controlador para autenticação de usuários
+            </summary>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.AuthController.Login(FinanceControl.FinanceControl.Application.DTOs.User.LoginDto)">
+            <summary>
+            Autentica um usuário e retorna tokens JWT
+            </summary>
+            <param name="loginDto">Dados de login (email e senha)</param>
+            <returns>Token JWT e refresh token</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.AuthController.Register(FinanceControl.FinanceControl.Application.DTOs.User.RegisterDto)">
+            <summary>
+            Registra um novo usuário
+            </summary>
+            <param name="registerDto">Dados de registro (nome, email e senha)</param>
+            <returns>Token JWT</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.AuthController.RefreshToken(FinanceControl.FinanceControl.Application.DTOs.User.RefreshTokenDto)">
+            <summary>
+            Renova o token JWT usando um refresh token válido
+            </summary>
+            <param name="refreshTokenDto">Token JWT expirado e refresh token</param>
+            <returns>Novo token JWT e refresh token</returns>
+        </member>
+        <member name="T:FinanceControl.FinanceControl.API.Controllers.CategoryController">
+            <summary>
+            Controlador para gerenciamento de categorias
+            </summary>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.CategoryController.Add(FinanceControl.FinanceControl.Application.DTOs.Category.CategoryCreateDto)">
+            <summary>
+            Cria uma nova categoria
+            </summary>
+            <param name="category">Dados da categoria</param>
+            <returns>Categoria criada</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.CategoryController.GetAll">
+            <summary>
+            Lista todas as categorias do usuário
+            </summary>
+            <returns>Lista de categorias</returns>
+        </member>
+        <member name="T:FinanceControl.FinanceControl.API.Controllers.TransactionController">
+            <summary>
+            Controlador para gerenciamento de transações financeiras
+            </summary>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.Add(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionCreateDto)">
+            <summary>
+            Cria uma nova transação
+            </summary>
+            <param name="dto">Dados da transação</param>
+            <returns>Transação criada</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.GetMonthlyBalance(System.Int32,System.Int32)">
+            <summary>
+            Retorna o saldo mensal do usuário
+            </summary>
+            <param name="year">Ano</param>
+            <param name="month">Mês (1-12)</param>
+            <returns>Saldo mensal (receitas, despesas e saldo)</returns>
+        </member>
+        <member name="T:FinanceControl.FinanceControl.API.Controllers.UserController">
+            <summary>
+            Controlador para gerenciamento de usuários (apenas administradores)
+            </summary>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.UserController.GetAll">
+            <summary>
+            Lista todos os usuários (requer privilégios de administrador)
+            </summary>
+            <returns>Lista de usuários</returns>
+        </member>
+        <member name="T:FinanceControl.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceControl.Migrations.MakeCategoryDescriptionOptional">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.MakeCategoryDescriptionOptional.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.MakeCategoryDescriptionOptional.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.MakeCategoryDescriptionOptional.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceControl.Migrations.UserRefreshToken">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UserRefreshToken.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UserRefreshToken.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UserRefreshToken.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceControl.Migrations.UpdateCategoiesAndTransactionsAndUsers">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UpdateCategoiesAndTransactionsAndUsers.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UpdateCategoiesAndTransactionsAndUsers.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UpdateCategoiesAndTransactionsAndUsers.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceControl.Migrations.RecurringTransaction">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.RecurringTransaction.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.RecurringTransaction.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.RecurringTransaction.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceControl.Migrations.UserLimits">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UserLimits.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UserLimits.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.UserLimits.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

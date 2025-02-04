@@ -8,5 +8,6 @@
         public int UserId { get; set; } // Adicionado
         public User User { get; set; } // Relacionamento com User
         public List<Transaction> Transactions { get; set; } = new();
+        public List<RecurringTransaction> RecurringTransactions { get; set; } = new();
     }
 }

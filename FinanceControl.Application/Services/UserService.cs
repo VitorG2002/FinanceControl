@@ -10,13 +10,15 @@ namespace FinanceControl.FinanceControl.Application.Services
     {
         private readonly IRepository<User> _rep;
         private readonly ITransactionRepository _repTransactions;
+        private readonly IRecurringTransactionRepository _repRecurringTransactions;
         private readonly ICategoryRepository _repCategories;
 
-        public UserService(IRepository<User> rep, ITransactionRepository repTransactions, ICategoryRepository repCategories)
+        public UserService(IRepository<User> rep, ITransactionRepository repTransactions, ICategoryRepository repCategories, IRecurringTransactionRepository repRecurringTransactions)
         {
             _rep = rep;
             _repTransactions = repTransactions;
             _repCategories = repCategories; 
+            _repRecurringTransactions = repRecurringTransactions;
         }
 
         public async Task<User> AddAsync(UserCreateDto dto)
@@ -58,6 +60,9 @@ namespace FinanceControl.FinanceControl.Application.Services
 
             // Deletar transações do usuário primeiro
             await _repTransactions.DeleteByUserIdAsync(userId);
+
+            // Deletar transações do usuário primeiro
+            await _repRecurringTransactions.DeleteByUserIdAsync(userId);
 
             // Deletar categorias do usuário
             await _repCategories.DeleteByUserIdAsync(userId);

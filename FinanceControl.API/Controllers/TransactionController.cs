@@ -6,6 +6,10 @@ using System.Security.Claims;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
+
+    /// <summary>
+    /// Controlador para gerenciamento de transações financeiras
+    /// </summary>
     [ApiController]
     [Authorize]
     [Route("api/[controller]")]
@@ -18,6 +22,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Cria uma nova transação
+        /// </summary>
+        /// <param name="dto">Dados da transação</param>
+        /// <returns>Transação criada</returns>
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] TransactionCreateDto dto)
         {
@@ -31,6 +40,7 @@ namespace FinanceControl.FinanceControl.API.Controllers
             var transactionCreated = await _service.AddAsync(dto, userId);
             return CreatedAtAction(nameof(GetAll), new { id = transactionCreated.Id }, transactionCreated);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] TransactionFilterDto filter)
@@ -79,6 +89,12 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Retorna o saldo mensal do usuário
+        /// </summary>
+        /// <param name="year">Ano</param>
+        /// <param name="month">Mês (1-12)</param>
+        /// <returns>Saldo mensal (receitas, despesas e saldo)</returns>
         [HttpGet("monthly-balance/{year}/{month}")]
         public async Task<IActionResult> GetMonthlyBalance(int year, int month)
         {

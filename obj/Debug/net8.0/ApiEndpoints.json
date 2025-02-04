@@ -122,6 +122,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController",
+    "Method": "Add",
+    "RelativePath": "api/RecurringTransaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FinanceControl.FinanceControl.Application.DTOs.RecurringTransaction.RecurringTransactionCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController",
+    "Method": "GetAllByUser",
+    "RelativePath": "api/RecurringTransaction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController",
+    "Method": "Update",
+    "RelativePath": "api/RecurringTransaction",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FinanceControl.FinanceControl.Application.DTOs.RecurringTransaction.RecurringTransactionUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController",
+    "Method": "Delete",
+    "RelativePath": "api/RecurringTransaction/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FinanceControl.FinanceControl.API.Controllers.TransactionController",
     "Method": "Add",
     "RelativePath": "api/Transaction",

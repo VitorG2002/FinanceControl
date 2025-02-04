@@ -13,6 +13,8 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Reflection;
 using System.Text;
+using Quartz;
+using FinanceControl.FinanceControl.Application.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,8 +34,22 @@ builder.Services.AddDbContext<FinanceControlDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
+
+builder.Services.AddQuartz(q =>
+{
+    var jobKey = new JobKey("RecurringTransactionJob");
+
+    q.AddJob<RecurringTransactionJob>(opts => opts.WithIdentity(jobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("RecurringTransactionTrigger")
+        .WithSimpleSchedule(x => x.WithIntervalInMinutes(1).RepeatForever())
+    );
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
 // Configuração do AutoMapper
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 AutoMapperFactory.Initialize();
 
@@ -42,7 +58,9 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<IRecurringTransactionService, RecurringTransactionService>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<IRecurringTransactionRepository, RecurringTransactionRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<JwtService>();
 // Configuração do Swagger
@@ -78,7 +96,17 @@ builder.Services.AddAuthorization();
 // Adicionar o Swagger com suporte a autenticação JWT
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Finance Control API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Finance Control API",
+        Version = "v1",
+        Description = "API para controle financeiro pessoal",
+        Contact = new OpenApiContact
+        {
+            Name = "Vitor Gutierrez",
+            Email = "gutierrezvitor@gmail.com"
+        }
+    });
 
     // Adiciona suporte para JWT no Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -105,9 +133,30 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+
+    // Habilita a documentação XML
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
+
 builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -115,7 +164,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Finance Control API v1");
+    });
 }
 
 app.UseHttpsRedirection();
@@ -124,6 +176,8 @@ app.UseAuthorization();
 
 // Usar o middleware de exceções
 app.UseMiddleware<ExceptionMiddleware>();
+
+//app.UseHangfireDashboard("/hangfire");
 
 app.MapControllers();
 

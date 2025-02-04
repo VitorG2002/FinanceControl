@@ -1,9 +1,11 @@
-﻿using FinanceControl.FinanceControl.Application.DTOs.Transaction;
+﻿using FinanceControl.FinanceControl.Application.Common;
+using FinanceControl.FinanceControl.Application.DTOs.Transaction;
 using FinanceControl.FinanceControl.Application.Extensions;
 using FinanceControl.FinanceControl.Domain.Entities;
 using FinanceControl.FinanceControl.Domain.Interfaces.Repositories;
 using FinanceControl.FinanceControl.Domain.Interfaces.Services;
 using FinanceControl.FinanceControl.Domain.Types;
+using NotificationService;
 
 namespace FinanceControl.FinanceControl.Application.Services
 {
@@ -22,6 +24,21 @@ namespace FinanceControl.FinanceControl.Application.Services
             transaction.UserId = int.Parse(userId); 
             transaction.CreatedAt = DateTime.UtcNow;
 
+            var notification = new NotificationMessage
+            {
+                Email = "usuario@example.com",
+                Subject = "Nova Transação",
+                Body = "Uma nova transação foi salva."
+            };
+
+            var publisher = new RabbitMqPublisher();
+            await publisher.PublishNotification(notification);
+
+            return await _rep.AddAsync(transaction);
+        }
+
+        public async Task<Transaction> AddAsync(Transaction transaction)
+        {
             return await _rep.AddAsync(transaction);
         }
 

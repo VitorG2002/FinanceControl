@@ -5,7 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
-    //[Authorize]
+
+    /// <summary>
+    /// Controlador para gerenciamento de usuários (apenas administradores)
+    /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
@@ -17,7 +21,10 @@ namespace FinanceControl.FinanceControl.API.Controllers
             _service = service;
         }
 
-
+        /// <summary>
+        /// Lista todos os usuários (requer privilégios de administrador)
+        /// </summary>
+        /// <returns>Lista de usuários</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

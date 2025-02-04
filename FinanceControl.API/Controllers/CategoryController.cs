@@ -6,6 +6,9 @@ using System.Security.Claims;
 
 namespace FinanceControl.FinanceControl.API.Controllers
 {
+    /// <summary>
+    /// Controlador para gerenciamento de categorias
+    /// </summary>
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
@@ -18,6 +21,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Cria uma nova categoria
+        /// </summary>
+        /// <param name="category">Dados da categoria</param>
+        /// <returns>Categoria criada</returns>
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] CategoryCreateDto category)
         {
@@ -33,6 +41,10 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return CreatedAtAction(nameof(GetAll), new { id = categoryCreated.Id }, categoryCreated);
         }
 
+        /// <summary>
+        /// Lista todas as categorias do usuário
+        /// </summary>
+        /// <returns>Lista de categorias</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

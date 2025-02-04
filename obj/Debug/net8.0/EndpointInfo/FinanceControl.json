@@ -2,6 +2,11 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Finance Control API",
+    "description": "API para controle financeiro pessoal",
+    "contact": {
+      "name": "Vitor Gutierrez",
+      "email": "gutierrezvitor@gmail.com"
+    },
     "version": "v1"
   },
   "paths": {
@@ -10,7 +15,9 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Autentica um usuário e retorna tokens JWT",
         "requestBody": {
+          "description": "Dados de login (email e senha)",
           "content": {
             "application/json": {
               "schema": {
@@ -41,7 +48,9 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Registra um novo usuário",
         "requestBody": {
+          "description": "Dados de registro (nome, email e senha)",
           "content": {
             "application/json": {
               "schema": {
@@ -72,7 +81,9 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Renova o token JWT usando um refresh token válido",
         "requestBody": {
+          "description": "Token JWT expirado e refresh token",
           "content": {
             "application/json": {
               "schema": {
@@ -103,7 +114,9 @@
         "tags": [
           "Category"
         ],
+        "summary": "Cria uma nova categoria",
         "requestBody": {
+          "description": "Dados da categoria",
           "content": {
             "application/json": {
               "schema": {
@@ -132,6 +145,7 @@
         "tags": [
           "Category"
         ],
+        "summary": "Lista todas as categorias do usuário",
         "responses": {
           "200": {
             "description": "OK"
@@ -212,12 +226,107 @@
         }
       }
     },
+    "/api/RecurringTransaction": {
+      "post": {
+        "tags": [
+          "RecurringTransaction"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurringTransactionCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurringTransactionCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurringTransactionCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "RecurringTransaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "RecurringTransaction"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurringTransactionUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurringTransactionUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurringTransactionUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RecurringTransaction/{id}": {
+      "delete": {
+        "tags": [
+          "RecurringTransaction"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Transaction": {
       "post": {
         "tags": [
           "Transaction"
         ],
+        "summary": "Cria uma nova transação",
         "requestBody": {
+          "description": "Dados da transação",
           "content": {
             "application/json": {
               "schema": {
@@ -356,10 +465,12 @@
         "tags": [
           "Transaction"
         ],
+        "summary": "Retorna o saldo mensal do usuário",
         "parameters": [
           {
             "name": "year",
             "in": "path",
+            "description": "Ano",
             "required": true,
             "schema": {
               "type": "integer",
@@ -369,6 +480,7 @@
           {
             "name": "month",
             "in": "path",
+            "description": "Mês (1-12)",
             "required": true,
             "schema": {
               "type": "integer",
@@ -443,6 +555,7 @@
         "tags": [
           "User"
         ],
+        "summary": "Lista todos os usuários (requer privilégios de administrador)",
         "responses": {
           "200": {
             "description": "OK"
@@ -564,6 +677,76 @@
           "password": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecurringTransactionCreateDto": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "$ref": "#/components/schemas/TransactionType"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cronExpression": {
+            "type": "string",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecurringTransactionUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "$ref": "#/components/schemas/TransactionType"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cronExpression": {
+            "type": "string",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -702,6 +885,26 @@
           "password": {
             "type": "string",
             "nullable": true
+          },
+          "dailyLimit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "weeklyLimit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "monthlyLimit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "annualLimit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -717,6 +920,9 @@
     }
   },
   "security": [
+    {
+      "Bearer": [ ]
+    },
     {
       "Bearer": [ ]
     }
