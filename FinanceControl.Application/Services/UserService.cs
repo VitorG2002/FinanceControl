@@ -79,6 +79,9 @@ namespace FinanceControl.FinanceControl.Application.Services
             var user = await _rep.GetByIdAsync(dto.Id);
             user = dto.MapTo(user);
 
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+            user.Password = hashedPassword;
+
             await _rep.UpdateAsync(user);
 
             return user;

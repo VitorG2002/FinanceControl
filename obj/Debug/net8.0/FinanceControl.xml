@@ -15,6 +15,8 @@
             </summary>
             <param name="loginDto">Dados de login (email e senha)</param>
             <returns>Token JWT e refresh token</returns>
+            <response code="200">Retorna o token JWT e o refresh token</response>
+            <response code="401">Se o login falhar devido a credenciais inválidas</response>
         </member>
         <member name="M:FinanceControl.FinanceControl.API.Controllers.AuthController.Register(FinanceControl.FinanceControl.Application.DTOs.User.RegisterDto)">
             <summary>
@@ -22,6 +24,8 @@
             </summary>
             <param name="registerDto">Dados de registro (nome, email e senha)</param>
             <returns>Token JWT</returns>
+            <response code="200">Retorna o token JWT para o novo usuário</response>
+            <response code="400">Se os dados de registro forem inválidos</response>
         </member>
         <member name="M:FinanceControl.FinanceControl.API.Controllers.AuthController.RefreshToken(FinanceControl.FinanceControl.Application.DTOs.User.RefreshTokenDto)">
             <summary>
@@ -29,6 +33,8 @@
             </summary>
             <param name="refreshTokenDto">Token JWT expirado e refresh token</param>
             <returns>Novo token JWT e refresh token</returns>
+            <response code="200">Retorna o novo token JWT e refresh token</response>
+            <response code="400">Se o token ou refresh token forem inválidos</response>
         </member>
         <member name="T:FinanceControl.FinanceControl.API.Controllers.CategoryController">
             <summary>
@@ -48,6 +54,59 @@
             </summary>
             <returns>Lista de categorias</returns>
         </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.CategoryController.GetById(System.Int32)">
+            <summary>
+            Obtém uma categoria pelo ID
+            </summary>
+            <param name="id">ID da categoria</param>
+            <returns>Categoria encontrada</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.CategoryController.Update(FinanceControl.FinanceControl.Application.DTOs.Category.CategoryUpdateDto)">
+            <summary>
+            Atualiza uma categoria existente
+            </summary>
+            <param name="dto">Dados atualizados da categoria</param>
+            <returns>Nenhum conteúdo</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Exclui uma categoria pelo ID
+            </summary>
+            <param name="id">ID da categoria</param>
+            <returns>Nenhum conteúdo</returns>
+        </member>
+        <member name="T:FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController">
+            <summary>
+            Controlador para gerenciamento de transações recorrentes
+            </summary>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController.Add(FinanceControl.FinanceControl.Application.DTOs.RecurringTransaction.RecurringTransactionCreateDto)">
+            <summary>
+            Cria uma nova transação recorrente
+            </summary>
+            <param name="dto">Dados da transação recorrente</param>
+            <returns>Transação recorrente criada</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController.GetAllByUser">
+            <summary>
+            Lista todas as transações recorrentes do usuário
+            </summary>
+            <returns>Lista de transações recorrentes</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController.Update(FinanceControl.FinanceControl.Application.DTOs.RecurringTransaction.RecurringTransactionUpdateDto)">
+            <summary>
+            Atualiza uma transação recorrente existente
+            </summary>
+            <param name="dto">Dados atualizados da transação recorrente</param>
+            <returns>Transação recorrente atualizada</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.RecurringTransactionController.Delete(System.Int32)">
+            <summary>
+            Exclui uma transação recorrente pelo ID
+            </summary>
+            <param name="id">ID da transação recorrente</param>
+            <returns>Nenhum conteúdo</returns>
+        </member>
         <member name="T:FinanceControl.FinanceControl.API.Controllers.TransactionController">
             <summary>
             Controlador para gerenciamento de transações financeiras
@@ -60,6 +119,37 @@
             <param name="dto">Dados da transação</param>
             <returns>Transação criada</returns>
         </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.GetAll(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionFilterDto)">
+            <summary>
+            Recupera todas as transações do usuário autenticado com base nos filtros fornecidos.
+            </summary>
+            <param name="filter">Objeto que contém os critérios de filtro para as transações, como data de início, data de término e tipo de transação.</param>
+            <returns>Uma lista de transações que correspondem aos critérios de filtro aplicados.</returns>
+            <response code="200">Transações recuperadas com sucesso.</response>
+            <response code="401">Usuário não autenticado.</response>
+            <response code="500">Erro interno do servidor ao processar a solicitação.</response>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.GetById(System.Int32)">
+            <summary>
+            Obtém uma transação pelo ID
+            </summary>
+            <param name="id">ID da transação</param>
+            <returns>Transação encontrada</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.Update(FinanceControl.FinanceControl.Application.DTOs.Transaction.TransactionUpdateDto)">
+            <summary>
+            Atualiza uma transação existente
+            </summary>
+            <param name="dto">Dados atualizados da transação</param>
+            <returns>Nenhum conteúdo</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.Delete(System.Int32)">
+            <summary>
+            Exclui uma transação pelo ID
+            </summary>
+            <param name="id">ID da transação</param>
+            <returns>Nenhum conteúdo</returns>
+        </member>
         <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.GetMonthlyBalance(System.Int32,System.Int32)">
             <summary>
             Retorna o saldo mensal do usuário
@@ -67,6 +157,21 @@
             <param name="year">Ano</param>
             <param name="month">Mês (1-12)</param>
             <returns>Saldo mensal (receitas, despesas e saldo)</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.GetAnnualBalance(System.Int32)">
+            <summary>
+            Retorna o saldo anual do usuário
+            </summary>
+            <param name="year">Ano</param>
+            <returns>Saldo anual (receitas, despesas e saldo)</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.TransactionController.GetCategoryBalance(System.Int32,System.Int32)">
+            <summary>
+            Retorna o saldo mensal do usuário por categoria
+            </summary>
+            <param name="year">Ano</param>
+            <param name="month">Mês (1-12)</param>
+            <returns>Saldo mensal por categoria (receitas, despesas e saldo)</returns>
         </member>
         <member name="T:FinanceControl.FinanceControl.API.Controllers.UserController">
             <summary>
@@ -78,6 +183,20 @@
             Lista todos os usuários (requer privilégios de administrador)
             </summary>
             <returns>Lista de usuários</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            Obtém um usuário pelo ID
+            </summary>
+            <param name="id">ID do usuário</param>
+            <returns>Usuário encontrado</returns>
+        </member>
+        <member name="M:FinanceControl.FinanceControl.API.Controllers.UserController.Update(FinanceControl.FinanceControl.Application.DTOs.User.UserUpdateDto)">
+            <summary>
+            Atualiza um usuário existente
+            </summary>
+            <param name="dto">Dados atualizados do usuário</param>
+            <returns>Nenhum conteúdo</returns>
         </member>
         <member name="T:FinanceControl.Migrations.InitialCreate">
             <inheritdoc />
@@ -149,6 +268,18 @@
             <inheritdoc />
         </member>
         <member name="M:FinanceControl.Migrations.UserLimits.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceControl.Migrations.FinalCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.FinalCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.FinalCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceControl.Migrations.FinalCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

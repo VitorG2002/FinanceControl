@@ -28,8 +28,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
         /// </summary>
         /// <param name="loginDto">Dados de login (email e senha)</param>
         /// <returns>Token JWT e refresh token</returns>
-
+        /// <response code="200">Retorna o token JWT e o refresh token</response>
+        /// <response code="401">Se o login falhar devido a credenciais inválidas</response>
         [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
             var users = await _userService.GetAllAsync();
@@ -46,13 +49,16 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(new { Token = token, RefreshToken = refreshToken });
         }
 
-
         /// <summary>
         /// Registra um novo usuário
         /// </summary>
         /// <param name="registerDto">Dados de registro (nome, email e senha)</param>
         /// <returns>Token JWT</returns>
+        /// <response code="200">Retorna o token JWT para o novo usuário</response>
+        /// <response code="400">Se os dados de registro forem inválidos</response>
         [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
             if (!ModelState.IsValid)
@@ -72,36 +78,34 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(new { Token = token });
         }
 
-
         /// <summary>
         /// Renova o token JWT usando um refresh token válido
         /// </summary>
         /// <param name="refreshTokenDto">Token JWT expirado e refresh token</param>
         /// <returns>Novo token JWT e refresh token</returns>
+        /// <response code="200">Retorna o novo token JWT e refresh token</response>
+        /// <response code="400">Se o token ou refresh token forem inválidos</response>
         [Authorize]
         [HttpPost("refresh-token")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
         {
-            // Obtém o principal (usuário) a partir do token expirado
             var principal = _jwtService.GetPrincipalFromExpiredToken(refreshTokenDto.Token);
             var userId = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (string.IsNullOrEmpty(userId))
                 return BadRequest("Token inválido.");
 
-            // Busca o usuário pelo ID
             var user = await _userService.GetByIdAsync(int.Parse(userId));
             if (user == null || user.RefreshToken != refreshTokenDto.RefreshToken || user.RefreshTokenExpiry <= DateTime.UtcNow)
                 return BadRequest("Token de refresh inválido.");
 
-            // Gera um novo token e um novo refresh token
             var newToken = _jwtService.GenerateToken(user.Email, user.Id.ToString());
             var newRefreshToken = _jwtService.GenerateRefreshToken();
 
-            // Atualiza o refresh token do usuário
             await _userService.UpdateRefreshTokenAsync(user.Id, newRefreshToken, DateTime.UtcNow.AddDays(7));
 
-            // Retorna o novo token e o novo refresh token
             return Ok(new { Token = newToken, RefreshToken = newRefreshToken });
         }
     }

@@ -41,7 +41,14 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return CreatedAtAction(nameof(GetAll), new { id = transactionCreated.Id }, transactionCreated);
         }
 
-
+        /// <summary>
+        /// Recupera todas as transações do usuário autenticado com base nos filtros fornecidos.
+        /// </summary>
+        /// <param name="filter">Objeto que contém os critérios de filtro para as transações, como data de início, data de término e tipo de transação.</param>
+        /// <returns>Uma lista de transações que correspondem aos critérios de filtro aplicados.</returns>
+        /// <response code="200">Transações recuperadas com sucesso.</response>
+        /// <response code="401">Usuário não autenticado.</response>
+        /// <response code="500">Erro interno do servidor ao processar a solicitação.</response>
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] TransactionFilterDto filter)
         {
@@ -53,7 +60,15 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(transactions);
         }
 
+        /// <summary>
+        /// Obtém uma transação pelo ID
+        /// </summary>
+        /// <param name="id">ID da transação</param>
+        /// <returns>Transação encontrada</returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -64,7 +79,16 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(transaction);
         }
 
+        /// <summary>
+        /// Atualiza uma transação existente
+        /// </summary>
+        /// <param name="dto">Dados atualizados da transação</param>
+        /// <returns>Nenhum conteúdo</returns>
         [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update([FromBody] TransactionUpdateDto dto)
         {
             if (!ModelState.IsValid)
@@ -78,7 +102,15 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Exclui uma transação pelo ID
+        /// </summary>
+        /// <param name="id">ID da transação</param>
+        /// <returns>Nenhum conteúdo</returns>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -106,6 +138,11 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(balance);
         }
 
+        /// <summary>
+        /// Retorna o saldo anual do usuário
+        /// </summary>
+        /// <param name="year">Ano</param>
+        /// <returns>Saldo anual (receitas, despesas e saldo)</returns>
         [HttpGet("annual-balance/{year}")]
         public async Task<IActionResult> GetAnnualBalance(int year)
         {
@@ -117,6 +154,12 @@ namespace FinanceControl.FinanceControl.API.Controllers
             return Ok(balance);
         }
 
+        /// <summary>
+        /// Retorna o saldo mensal do usuário por categoria
+        /// </summary>
+        /// <param name="year">Ano</param>
+        /// <param name="month">Mês (1-12)</param>
+        /// <returns>Saldo mensal por categoria (receitas, despesas e saldo)</returns>
         [HttpGet("category-balance/{year}/{month}")]
         public async Task<IActionResult> GetCategoryBalance(int year, int month)
         {

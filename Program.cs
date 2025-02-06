@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text;
 using Quartz;
 using FinanceControl.FinanceControl.Application.Jobs;
+using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,9 +32,12 @@ builder.Services.AddControllers();
 
 // Configuração do DbContext 
 builder.Services.AddDbContext<FinanceControlDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure()));
 
 
+
+builder.Services.AddSingleton<RabbitMqPublisher>();
 
 builder.Services.AddQuartz(q =>
 {

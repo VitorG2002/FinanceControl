@@ -1,6 +1,6 @@
-@FinanceControl_HostAddress = http://localhost:5159
+@FinanceControl_HostAddress = http://financecontrol-api
 
-GET {{FinanceControl_HostAddress}}/weatherforecast/
+GET {{FinanceControl_HostAddress}}/FinanceControl/
 Accept: application/json
 
 ###

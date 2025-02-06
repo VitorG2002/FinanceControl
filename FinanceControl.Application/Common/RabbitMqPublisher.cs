@@ -16,7 +16,12 @@ namespace FinanceControl.FinanceControl.Application.Common
 
         public async Task PublishNotification(NotificationMessage notification)
         {
-            var factory = new ConnectionFactory() { HostName = "rabbitmq" };
+            var factory = new ConnectionFactory()
+            {
+                HostName = "rabbitmq",
+                UserName = "user",  // Substitua pelo seu nome de usuário
+                Password = "MyNewPassword123"   // Substitua pela sua senha
+            };
             _connection = await factory.CreateConnectionAsync();
             _channel = await _connection.CreateChannelAsync();
             await _channel.QueueDeclareAsync(

@@ -1,0 +1,25 @@
+2025-02-06 03:46:29.952 -03:00 [INF] User profile is available. Using 'C:\Users\gutie\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-06 03:46:30.068 -03:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-02-06 03:46:30.071 -03:00 [INF] Quartz Scheduler created
+2025-02-06 03:46:30.073 -03:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-02-06 03:46:30.083 -03:00 [INF] RAMJobStore initialized.
+2025-02-06 03:46:30.085 -03:00 [INF] Quartz Scheduler 3.13.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-02-06 03:46:30.088 -03:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-02-06 03:46:30.089 -03:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2025-02-06 03:46:30.104 -03:00 [INF] Adding 1 jobs, 1 triggers.
+2025-02-06 03:46:30.108 -03:00 [INF] Adding job: DEFAULT.RecurringTransactionJob
+2025-02-06 03:46:30.400 -03:00 [INF] Now listening on: http://0.0.0.0:5159
+2025-02-06 03:46:30.493 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-06 03:46:30.501 -03:00 [INF] Hosting environment: Development
+2025-02-06 03:46:30.502 -03:00 [INF] Content root path: C:\Users\gutie\source\repos\FinanceControl\FinanceControl
+2025-02-06 03:46:30.502 -03:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-02-06 03:46:32.665 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.html - null null
+2025-02-06 03:46:33.241 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.html - 200 null text/html;charset=utf-8 592.8402ms
+2025-02-06 03:46:33.287 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/index.js - null null
+2025-02-06 03:46:33.287 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-06 03:46:33.309 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/index.js - 200 null application/javascript;charset=utf-8 24.9844ms
+2025-02-06 03:46:33.329 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 46.8845ms
+2025-02-06 03:46:33.839 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/_vs/browserLink - null null
+2025-02-06 03:46:34.030 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/_vs/browserLink - 200 null text/javascript; charset=UTF-8 190.7441ms
+2025-02-06 03:46:34.110 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - null null
+2025-02-06 03:46:34.176 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5159/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 66.5671ms

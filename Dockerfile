@@ -1,26 +1,35 @@
-# Usa a imagem base do .NET
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+# Usa a imagem base do .NET para rodar a aplicação
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 80
 
 # Usa a imagem do SDK para build
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["FinanceControl.API/FinanceControl.API.csproj", "FinanceControl.API/"]
-COPY ["FinanceControl.Application/FinanceControl.Application.csproj", "FinanceControl.Application/"]
-COPY ["FinanceControl.Domain/FinanceControl.Domain.csproj", "FinanceControl.Domain/"]
-COPY ["FinanceControl.Infrastructure/FinanceControl.Infrastructure.csproj", "FinanceControl.Infrastructure/"]
-RUN dotnet restore "FinanceControl.API/FinanceControl.API.csproj"
+
+# Copia os arquivos do projeto FinanceControl e NotificationService
+COPY ./FinanceControl/FinanceControl.csproj ./FinanceControl/
+COPY ./NotificationService/NotificationService.csproj ./NotificationService/
+
+# Restaura as dependências
+WORKDIR /src/FinanceControl
+RUN sed -i 's/CipherString = DEFAULT@SECLEVEL=2/CipherString = DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN dotnet restore
+
+WORKDIR /src/NotificationService
+RUN dotnet restore
+
+# Copia todo o código-fonte
 COPY . .
-WORKDIR "/src/FinanceControl.API"
-RUN dotnet build "FinanceControl.API.csproj" -c Release -o /app/build
+# Publica os projetos individualmente para evitar conflitos
+RUN dotnet publish "FinanceControl/FinanceControl.csproj" -c Release -o /app/publish/FinanceControl
+RUN dotnet publish "NotificationService/NotificationService.csproj" -c Release -o /app/publish/NotificationService
 
-# Publica a aplicação
-FROM build AS publish
-RUN dotnet publish "FinanceControl.API.csproj" -c Release -o /app/publish
-
-# Copia os arquivos publicados para a imagem final
+# Copia os binários para a imagem final
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "FinanceControl.API.dll"]
+COPY --from=build /app/publish/FinanceControl .
+COPY --from=build /app/publish/NotificationService ./notification
+
+# Define o entrypoint para rodar a API principal
+ENTRYPOINT ["dotnet", "FinanceControl.dll"]
