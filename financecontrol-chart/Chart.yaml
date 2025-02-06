@@ -1,0 +1,5 @@
+apiVersion: v2
+name: financecontrol
+description: Aplicação Finance Control
+version: 0.1.0
+appVersion: "1.0"

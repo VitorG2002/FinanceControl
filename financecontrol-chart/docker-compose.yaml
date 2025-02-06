@@ -1,0 +1,82 @@
+version: '3.8'
+
+networks:
+  finance-control-network:
+    driver: bridge
+
+services:
+  # Serviço do RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"  # Interface de gerenciamento do RabbitMQ
+      - "5672:5672"    # Porta de comunicação do RabbitMQ
+    networks:
+      - finance-control-network
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=MyNewPassword123
+    restart: always
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+
+  # Serviço do SQL Server
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Bingus123  # A senha do SQL Server
+    ports:
+      - "1433:1433"  # Porta para o SQL Server
+    networks:
+      - finance-control-network
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d  # Monta o diretório local ./scripts no diretório do contêiner
+    restart: always
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "Bingus123", "-Q", "SELECT 1"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+
+  # Serviço para o projeto FinanceControl (APIs)
+  financecontrol-api:
+    build:
+      context: .  # Alterado para a raiz do projeto
+      dockerfile: FinanceControl/Dockerfile  # Caminho relativo ao contexto
+    container_name: financecontrol-api
+    ports:
+      - "5000:80"  # Ajuste a porta conforme necessário
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development  # Pode ser ajustado para produção ou outro ambiente
+      - ConnectionStrings__DefaultConnection="Server=sqlserver,1433;Database=FinanceControlDb;User Id=sa;Password=Bingus123;TrustServerCertificate=True"
+      - RabbitMq__Host=rabbitmq  # Nome do serviço do RabbitMQ
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - finance-control-network
+    restart: always
+
+  # Serviço para o projeto NotificationService (Worker Service)
+  notificationservice-worker:
+    build:
+      context: ./NotificationService  # Caminho do projeto NotificationService
+      dockerfile: Dockerfile         # Certifique-se de que o Dockerfile esteja presente na pasta NotificationService
+    container_name: notificationservice-worker
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development  # Pode ser ajustado para produção ou outro ambiente
+      - RabbitMq__Host=rabbitmq  # Nome do serviço do RabbitMQ
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - finance-control-network
+    restart: always

@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: financecontrol
+    meta.helm.sh/release-namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver
+  template:
+    metadata:
+      labels:
+        app: sqlserver
+    spec:
+      initContainers:
+        - name: init-db
+          image: custom-sqlserver
+          command: ["bash", "-c", "sleep 30; ls -l /tmp; /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P \"${SA_PASSWORD}\" -i /tmp/init-db.sql"]
+          env:
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sqlserver-secret
+                  key: sa-password
+          volumeMounts:
+            - name: sql-init-scripts
+              mountPath: /tmp
+      containers:
+        - name: sqlserver
+          image: custom-sqlserver  # Nome da imagem customizada criada
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sqlserver-secret
+                  key: sa-password
+          volumeMounts:
+            - name: sql-init-scripts
+              mountPath: /tmpl
+      volumes:
+        - name: sql-init-scripts
+          configMap:
+            name: sql-init-scripts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqlserver
+spec:
+  selector:
+    app: sqlserver
+  ports:
+    - protocol: TCP
+      port: 1433  # Expondo a porta 1433 do SQL Server
+      targetPort: 1433
