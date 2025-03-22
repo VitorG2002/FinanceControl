@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceControl", "FinanceControl\FinanceControl.csproj", "{811F92C9-BA13-499E-A10E-D842B3D292F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "NotificationService\NotificationService.csproj", "{EA0FC801-819B-47D1-8B0A-5498AB08C882}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{5C8E43F5-78EC-460A-86BD-C8558BF93742}"
+	ProjectSection(SolutionItems) = preProject
+		sqlserver\Dockerfile = sqlserver\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "financecontrol-chart", "financecontrol-chart", "{0F32116C-9B2B-4FD6-8F21-741635D90050}"
+	ProjectSection(SolutionItems) = preProject
+		financecontrol-chart\Chart.yaml = financecontrol-chart\Chart.yaml
+		financecontrol-chart\init-db-configmap.yaml = financecontrol-chart\init-db-configmap.yaml
+		financecontrol-chart\values.yaml = financecontrol-chart\values.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{59F9F8D5-D726-4FB8-9E7F-287264B5FB1B}"
+	ProjectSection(SolutionItems) = preProject
+		financecontrol-chart\templates\01-sqlserver.yaml = financecontrol-chart\templates\01-sqlserver.yaml
+		financecontrol-chart\templates\02-rabbitmq.yaml = financecontrol-chart\templates\02-rabbitmq.yaml
+		financecontrol-chart\templates\03-financecontrol-api.yaml = financecontrol-chart\templates\03-financecontrol-api.yaml
+		financecontrol-chart\templates\04-notificationservice-worker.yaml = financecontrol-chart\templates\04-notificationservice-worker.yaml
+		financecontrol-chart\templates\secrets.yaml = financecontrol-chart\templates\secrets.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{05CF58CF-D7F4-4D09-8AF1-AD842DB8737F}"
+	ProjectSection(SolutionItems) = preProject
+		financecontrol-chart\scripts\init-db.sql = financecontrol-chart\scripts\init-db.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{811F92C9-BA13-499E-A10E-D842B3D292F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811F92C9-BA13-499E-A10E-D842B3D292F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811F92C9-BA13-499E-A10E-D842B3D292F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811F92C9-BA13-499E-A10E-D842B3D292F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA0FC801-819B-47D1-8B0A-5498AB08C882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA0FC801-819B-47D1-8B0A-5498AB08C882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA0FC801-819B-47D1-8B0A-5498AB08C882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA0FC801-819B-47D1-8B0A-5498AB08C882}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59F9F8D5-D726-4FB8-9E7F-287264B5FB1B} = {0F32116C-9B2B-4FD6-8F21-741635D90050}
+		{05CF58CF-D7F4-4D09-8AF1-AD842DB8737F} = {0F32116C-9B2B-4FD6-8F21-741635D90050}
+	EndGlobalSection
+EndGlobal

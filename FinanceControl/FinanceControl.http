@@ -1,0 +1,6 @@
+@FinanceControl_HostAddress = http://financecontrol-api
+
+GET {{FinanceControl_HostAddress}}/FinanceControl/
+Accept: application/json
+
+###

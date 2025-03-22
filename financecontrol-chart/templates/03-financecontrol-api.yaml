@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: financecontrol-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: financecontrol-api
+  template:
+    metadata:
+      labels:
+        app: financecontrol-api
+    spec:
+      containers:
+      - name: financecontrol-api
+        image: financecontrol-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: ConnectionStrings__DefaultConnection
+          value: "Server=10.1.2.31,1433;Database=FinanceControlDb;User Id=sa;Password=Bingus123;TrustServerCertificate=True;"
+        - name: RabbitMq__Host
+          value: "rabbitmq"
+        envFrom:
+        - secretRef:
+            name: sqlserver-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: financecontrol-api
+spec:
+  type: LoadBalancer
+  selector:
+    app: financecontrol-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

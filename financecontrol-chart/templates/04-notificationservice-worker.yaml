@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notificationservice-worker
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: financecontrol
+    meta.helm.sh/release-namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notificationservice-worker
+  template:
+    metadata:
+      labels:
+        app: notificationservice-worker
+    spec:
+      containers:
+      - name: notificationservice-worker
+        image: "{{ .Values.image.notificationservice.repository }}:{{ .Values.image.notificationservice.tag }}"
+        imagePullPolicy: {{ .Values.image.notificationservice.pullPolicy }}
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: RabbitMq__Host
+          value: "rabbitmq"  # Nome do serviço RabbitMQ
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notificationservice-worker
+spec:
+  selector:
+    app: notificationservice-worker
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  financecontrol:
+    repository: financecontrol-api
+    tag: latest
+    pullPolicy: IfNotPresent
+  notificationservice:
+    repository: notificationservice-worker
+    tag: latest
+    pullPolicy: Never
+  customsql:
+    repository: custom-sqlserver
+    tag: latest
+    pullPolicy: Never
+sqlserver:
+  saPassword: "Bingus123"
+
+rabbitmq:
+  username: user
+  password: MyNewPassword123

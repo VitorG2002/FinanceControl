@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: apply-migrations
+spec:
+  template:
+    spec:
+      containers:
+      - name: ef-migrations
+        image: custom-sqlserver
+        command: ["dotnet", "ef", "database", "update"]
+        env:
+        - name: ConnectionStrings__DefaultConnection
+          value: "Server=sqlserver-service;Database=FinanceControlDb;User Id=sa;Password=Bingus123;"
+      restartPolicy: Never

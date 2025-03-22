@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver
+  template:
+    metadata:
+      labels:
+        app: sqlserver
+    spec:
+      containers:
+        - name: sqlserver
+          image: custom-sqlserver  # Nome da imagem customizada criada
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sqlserver-secret
+                  key: sa-password
+          volumeMounts:
+            - name: sql-init-scripts
+              mountPath: /tmpl
+      volumes:
+        - name: sql-init-scripts
+          configMap:
+            name: sql-init-scripts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqlserver
+spec:
+  selector:
+    app: sqlserver
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
