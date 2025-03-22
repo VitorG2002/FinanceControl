@@ -8,7 +8,7 @@ image:
   notificationservice:
     repository: notificationservice-worker
     tag: latest
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
   customsql:
     repository: custom-sqlserver
     tag: latest

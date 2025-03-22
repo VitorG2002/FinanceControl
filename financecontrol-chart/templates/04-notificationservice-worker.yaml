@@ -19,8 +19,8 @@ spec:
     spec:
       containers:
       - name: notificationservice-worker
-        image: "{{ .Values.image.notificationservice.repository }}:{{ .Values.image.notificationservice.tag }}"
-        imagePullPolicy: {{ .Values.image.notificationservice.pullPolicy }}
+        image: notificationservice-worker:latest
+        imagePullPolicy: IfNotPresent
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
