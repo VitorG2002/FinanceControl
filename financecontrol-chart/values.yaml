@@ -2,17 +2,17 @@ replicaCount: 1
 
 image:
   financecontrol:
-    repository: financecontrol-api
+    repository: financecontrolacr.azurecr.io/financecontrol-api
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   notificationservice:
-    repository: notificationservice-worker
+    repository: financecontrolacr.azurecr.io/notificationservice-worker
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   customsql:
-    repository: custom-sqlserver
+    repository: financecontrolacr.azurecr.io/custom-sqlserver:latest
     tag: latest
-    pullPolicy: Never
+    pullPolicy: Always
 sqlserver:
   saPassword: "Bingus123"
 
